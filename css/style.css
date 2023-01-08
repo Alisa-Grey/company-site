@@ -1,0 +1,249 @@
+@font-face {
+	font-family: 'Roboto';
+	src: local('RobotoLight'), local('Roboto-Light'),
+		url(../assets/fonts/roboto-light-webfont.woff2),
+		url(../assets/fonts/roboto-light-webfont.woff);
+	font-display: swap;
+	font-style: normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: local('RobotoLightItalic'), local('Roboto-Light-Italic'),
+		url(../assets/fonts/roboto-lightitalic-webfont.woff2),
+		url(../assets/fonts/roboto-lightitalic-webfont.woff);
+	font-display: swap;
+	font-style: italic;
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: local('RobotoRegular'), local('Roboto-Regular'),
+		url(../assets/fonts/roboto-regular-webfont.woff2),
+		url(../assets/fonts/roboto-regular-webfont.woff);
+	font-display: swap;
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: local('RobotoMedium'), local('Roboto-Medium'),
+		url(../assets/fonts/roboto-medium-webfont.woff2),
+		url(../assets/fonts/roboto-medium-webfont.woff);
+	font-display: swap;
+	font-style: normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: local('RobotoBold'), local('Roboto-Bold'),
+		url(../assets/fonts/roboto-bold-webfont.woff2),
+		url(../assets/fonts/roboto-bold-webfont.woff);
+	font-display: swap;
+	font-style: normal;
+	font-weight: 700;
+}
+:root {
+	--color-main: #2a2d93;
+	--color-link: #0071bd;
+	--color-bg-blue: rgba(0, 113, 189, 0.19);
+	--color-bg-darkviolet: rgba(46, 49, 146, 0.12);
+	--color-bg-violet: rgba(42, 45, 147, 0.67);
+	--color-text: #565656;
+	--margin-outer: 100px;
+	--margin: 80px;
+	--gap: 40px;
+	--margin-inner: 20px;
+}
+*,
+*::before,
+::after {
+	box-sizing: border-box;
+	outline: none;
+	margin: 0;
+}
+html,
+body {
+	width: 100%;
+	height: 100vh;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+.link-reset {
+	color: currentColor;
+	text-decoration: none;
+}
+.list-reset {
+	list-style: none;
+}
+.btn-reset {
+	background-color: transparent;
+	border: 1px solid transparent;
+}
+.link-reset,
+.btn-reset {
+	transition: all 0.3s ease-in-out;
+}
+.wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	height: 100vh;
+}
+.container {
+	margin: 0 auto;
+	padding: 0 var(--margin-outer);
+}
+.heading {
+	margin-bottom: 10px;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 110%;
+	text-transform: uppercase;
+}
+.subheading {
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 110%;
+}
+.text {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+	color: var(--color-text);
+}
+.link {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 32px;
+	color: var(--color-link);
+	mix-blend-mode: normal;
+}
+.subtitle {
+	font-style: italic;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 19px;
+	color: var(--color-text);
+}
+/* header */
+.header,
+.nav-list,
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header {
+	padding: 10px 100px;
+	background-color: var(--color-bg-violet);
+}
+.header__logo-img {
+	width: 70px;
+	height: 69px;
+}
+.nav-list__item:not(:last-child) {
+	margin-right: 30px;
+}
+.nav-list__link {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 23px;
+	color: #fff;
+	text-transform: uppercase;
+}
+.burger-container {
+	display: none;
+}
+/* hero */
+.content-wrap {
+	width: 50%;
+	padding-top: 10px;
+	padding-left: 120px;
+}
+.hero {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-self: flex-start;
+	margin-bottom: var(--margin-outer);
+}
+.hero::after {
+	content: '';
+	position: absolute;
+	right: 21px;
+	bottom: -55px;
+	width: 100px;
+	height: 97px;
+	border-bottom-right-radius: 60px;
+	background-color: var(--color-bg-darkviolet);
+	z-index: -1;
+}
+.hero__heading,
+.hero__subheading {
+	margin-bottom: var(--margin-inner);
+}
+.hero__img {
+	width: 45%;
+	border-bottom-left-radius: 200px;
+}
+/* footer */
+footer-component {
+	margin-top: auto;
+}
+.footer {
+	padding: 23.5px 100px;
+	color: #fff;
+	background-color: var(--color-main);
+}
+.footer__text,
+.footer__link {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 160%;
+}
+/* projects page */
+.section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100vh;
+	padding-top: 100px;
+	padding-bottom: 150px;
+}
+.section__content-wrap {
+	width: 40%;
+}
+.section__video {
+	width: 50%;
+	border-radius: 20px;
+}
+.section__logo {
+	margin-bottom: var(--margin-inner);
+}
+.section__text {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 160%;
+	color: #fff;
+}
+.summer-friends {
+	background-color: #03b1fe;
+}
+.summer-friends__logo {
+	width: 200px;
+}
+.darkest-afk {
+	background-color: #000;
+}
+.darkest-afk__logo {
+	width: 200px;
+}
+.wondermatch {
+	background-color: #0663b1;
+}
+.wondermatch__logo {
+	width: 250px;
+}
+/* links, buttons states */
