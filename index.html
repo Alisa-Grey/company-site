@@ -16,6 +16,11 @@
 		/>
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="stylesheet" href="./css/style.css" />
+		<link
+			media="screen and (max-width:1441px)"
+			rel="stylesheet"
+			href="./css/media.css"
+		/>
 		<script src="./components/header.js"></script>
 		<script src="./components/footer.js"></script>
 		<title>Главная / Heapp Games</title>
@@ -23,77 +28,87 @@
 	<body>
 		<div class="wrap">
 			<header-component></header-component>
-			<main class="main">
+			<main class="main projects">
 				<section class="summer-friends section container">
-					<div class="section__content-wrap">
-						<img
-							class="section__logo summer-friends__logo"
-							src="./assets/images/summerfriends_logo.png"
-							alt="Summer friends logo"
-						/>
-						<p class="section__text">
-							Игра в&nbsp;жанре &laquo;три в&nbsp;ряд&raquo; выполненная
-							в&nbsp;мультяшном, ярком и&nbsp;позитивном стиле. Огромное
-							количество игровых механик и&nbsp;блокаторов. Уникальные решения.
-							Анимированные сцены и&nbsp;сюжетные линии. Сильная социальная
-							составляющая и&nbsp;уклон на&nbsp;игру с&nbsp;друзьями.
-						</p>
+					<div class="fixed">
+						<div class="section__content-wrap">
+							<img
+								class="section__logo summer-friends__logo"
+								src="./assets/images/summerfriends_logo.png"
+								alt="Summer friends logo"
+							/>
+							<p class="section__text">
+								Игра в&nbsp;жанре &laquo;три в&nbsp;ряд&raquo; выполненная
+								в&nbsp;мультяшном, ярком и&nbsp;позитивном стиле. Огромное
+								количество игровых механик и&nbsp;блокаторов. Уникальные
+								решения. Анимированные сцены и&nbsp;сюжетные линии. Сильная
+								социальная составляющая и&nbsp;уклон на&nbsp;игру
+								с&nbsp;друзьями.
+							</p>
+						</div>
+						<video class="section__video" loop autoplay muted>
+							<source
+								src="./assets/video/summer_friends_trailer.mp4"
+								type="video/mp4"
+							/>
+						</video>
 					</div>
-					<video class="section__video" loop autoplay muted>
-						<source
-							src="./assets/video/summer_friends_trailer.mp4"
-							type="video/mp4"
-						/>
-					</video>
 				</section>
 				<section class="darkest-afk section container">
-					<div class="section__content-wrap">
-						<img
-							class="section__logo darkest-afk__logo"
-							src="./assets/images/darkest_logo.png"
-							alt="Darkest AFK logo"
-						/>
-						<p class="section__text">
-							Вы&nbsp;окунетесь в&nbsp;атмосферу классической ролевой игры
-							с&nbsp;уникальным геймплеем и&nbsp;персонажами. Сразитесь
-							с&nbsp;другими игроками в&nbsp;режиме PVP, вступите в&nbsp;битву
-							с&nbsp;древними злыми существами в&nbsp;Утопии Драконов
-							и&nbsp;одержите победу могущественных врагов в&nbsp;Башне Тьмы.
-						</p>
+					<div class="fixed">
+						<div class="section__content-wrap">
+							<img
+								class="section__logo darkest-afk__logo"
+								src="./assets/images/darkest_logo.png"
+								alt="Darkest AFK logo"
+							/>
+							<p class="section__text">
+								Вы&nbsp;окунетесь в&nbsp;атмосферу классической ролевой игры
+								с&nbsp;уникальным геймплеем и&nbsp;персонажами. Сразитесь
+								с&nbsp;другими игроками в&nbsp;режиме PVP, вступите в&nbsp;битву
+								с&nbsp;древними злыми существами в&nbsp;Утопии Драконов
+								и&nbsp;одержите победу над могущественными врагами в&nbsp;Башне
+								Тьмы.
+							</p>
+						</div>
+						<video
+							class="summer-friends__video section__video"
+							loop
+							autoplay
+							muted
+						>
+							<source
+								src="./assets/video/darkest_afk_trailer.mp4"
+								type="video/mp4"
+							/>
+						</video>
 					</div>
-					<video
-						class="summer-friends__video section__video"
-						loop
-						autoplay
-						muted
-					>
-						<source
-							src="./assets/video/darkest_afk_trailer.mp4"
-							type="video/mp4"
-						/>
-					</video>
 				</section>
 				<section class="wondermatch section container">
-					<div class="section__content-wrap">
-						<img
-							class="section__logo wondermatch__logo"
-							src="./assets/images/wondermatch.png"
-							alt="Wondermatch logo"
-						/>
-						<p class="section__text">
-							Отправляйтесь навстречу необычным приключениям вместе
-							с&nbsp;Alice, узнайте какие секреты хранит в&nbsp;себе зазеркалье
-						</p>
+					<div class="fixed">
+						<div class="section__content-wrap">
+							<img
+								class="section__logo wondermatch__logo"
+								src="./assets/images/wondermatch.png"
+								alt="Wondermatch logo"
+							/>
+							<p class="section__text">
+								Отправляйтесь навстречу необычным приключениям вместе
+								с&nbsp;Alice, узнайте какие секреты хранит в&nbsp;себе
+								зазеркалье
+							</p>
+						</div>
+						<video class="section__video" loop autoplay muted>
+							<source
+								src="./assets/video/wondermatch_trailer.mp4"
+								type="video/mp4"
+							/>
+						</video>
 					</div>
-					<video class="section__video" loop autoplay muted>
-						<source
-							src="./assets/video/wondermatch_trailer.mp4"
-							type="video/mp4"
-						/>
-					</video>
 				</section>
 			</main>
 			<footer-component></footer-component>
 		</div>
+		<script src="./script/main.js"></script>
 	</body>
 </html>

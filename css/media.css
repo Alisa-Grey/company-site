@@ -1,0 +1,145 @@
+@media screen and (max-width: 1441px) {
+	/* projects page */
+	.section__content-wrap {
+		width: 45%;
+	}
+	.section__text {
+		font-size: 18px;
+	}
+	.summer-friends__logo {
+		width: 20vw;
+	}
+	.darkest-afk__logo {
+		width: 14vw;
+	}
+	.wondermatch__logo {
+		width: 25vw;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.nav {
+		position: absolute;
+		top: 94px;
+		right: 0;
+		width: 300px;
+		height: auto;
+		padding: 20px;
+		background-color: var(--color-bg-violet);
+		z-index: 2;
+		transform: translateY(-350%);
+		transition: all 0.2s ease-out;
+	}
+	.nav.is-active {
+		transform: none;
+	}
+	.nav-list {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.nav-list__item:not(:last-child) {
+		margin-right: 0;
+		margin-bottom: var(--margin-inner);
+	}
+	.header__burger-container {
+		display: block;
+		position: relative;
+		height: 30px;
+		width: 40px;
+	}
+	.header__burger-container:hover > .header__burger-lines > .burger__line {
+		background-color: #cecece;
+	}
+	.header__burger {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 5;
+		opacity: 0;
+		cursor: pointer;
+	}
+	.burger__lines {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.burger__lines .burger__line {
+		display: block;
+		height: 4px;
+		width: 100%;
+		border-radius: 10px;
+		background: #fff;
+		transition: background 0.3s ease-in-out;
+	}
+	.burger__lines .burger__line .burger__line1,
+	.burger__lines .burger__line .burger__line2,
+	.burger__lines .burger__line .burger__line3 {
+		transition: transform 0.3s ease-in-out;
+	}
+	.burger__lines.is-active .burger__line1 {
+		transform: rotate(-45deg) translate(-4px, 11px);
+	}
+	.burger__lines.is-active .burger__line2 {
+		transform: scaleY(0);
+	}
+	.burger__lines.is-active .burger__line3 {
+		transform: rotate(45deg) translate(-7px, -14px);
+	}
+	.fixed {
+		flex-direction: column;
+		align-items: center;
+	}
+	.section .fixed {
+		top: 60%;
+		align-items: center;
+		padding-bottom: var(--gap);
+	}
+	.section__content-wrap {
+		width: 80%;
+		margin-right: 0;
+		margin-bottom: var(--margin-inner);
+	}
+	.section__text {
+		font-size: 16px;
+	}
+	.section__logo {
+		align-self: center;
+	}
+	.section__video {
+		width: 70%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.container {
+		padding: 0 var(--margin-inner);
+	}
+	.header {
+		padding: 10px var(--gap);
+	}
+	/* projects page */
+	.section .fixed {
+		width: 99%;
+	}
+	.section__video {
+		width: 90%;
+	}
+	.section__text {
+		font-size: 4vw;
+	}
+	.summer-friends__logo {
+		width: 40vw;
+	}
+	.darkest-afk__logo {
+		width: 26vw;
+	}
+	.wondermatch__logo {
+		width: 60vw;
+	}
+}

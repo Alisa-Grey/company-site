@@ -4,7 +4,7 @@ class Header extends HTMLElement {
 	}
 	connectedCallback() {
 		this.innerHTML = `
-		<header class="header">
+		<header class="header" id="header">
 			<a
 				class="header__logo link-reset"
 				href="https://heapp.games/"
@@ -12,12 +12,12 @@ class Header extends HTMLElement {
 			>
 				<img class="header__logo-img" src="./assets/images/heapp_logo.png" alt="HeappGames logo" />
 			</a>
-			<div class="burger-container">
-				<input type="checkbox" class="toggle-menu" id="toggle-menu" />
-				<div class="burger-lines">
-					<span class="line line1"></span>
-					<span class="line line2"></span>
-					<span class="line line3"></span>
+			<div class="header__burger-container">
+				<input type="checkbox" class="header__burger burger" id="toggle-menu" />
+				<div class="burger__lines">
+					<span class="burger__line burger__line1"></span>
+					<span class="burger__line burger__line2"></span>
+					<span class="burger__line burger__line3"></span>
 				</div>
 			</div>
 			<nav id="menu" class="nav">
