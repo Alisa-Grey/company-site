@@ -28,7 +28,7 @@
 				<section class="hero jobs-hero">
 					<div class="content-wrap">
 						<h1 class="heading">РАБОТА У НАС</h1>
-						<p class="text">
+						<p class="text hero__text">
 							С&nbsp;нами ты&nbsp;можешь развить все свои таланты, а&nbsp;еще
 							у&nbsp;нас приветствуется играть в&nbsp;игры!
 						</p>
@@ -105,15 +105,26 @@
 					<div class="container">
 						<h2 class="heading jobs__heading">Наши вакансии</h2>
 						<div class="tab">
-							<button class="tab__link btn-reset">Разработка</button>
-							<button class="tab__link btn-reset">Арт</button>
-							<button class="tab__link btn-reset">Тестирование</button>
-							<button class="tab__link btn-reset">Маркетинг</button>
-							<button class="tab__link btn-reset">HR и финансы</button>
+							<button
+								class="tab__link btn-reset is-active"
+								data-link="development"
+							>
+								Разработка
+							</button>
+							<button class="tab__link btn-reset" data-link="art">Арт</button>
+							<button class="tab__link btn-reset" data-link="testing">
+								Тестирование
+							</button>
+							<button class="tab__link btn-reset" data-link="marketing">
+								Маркетинг
+							</button>
+							<button class="tab__link btn-reset" data-link="hr-finance">
+								HR и финансы
+							</button>
 						</div>
-						<div class="tab__content" id="development">
+						<div class="tab__content is-shown" id="development">
 							<ul class="jobs-list list-reset">
-								<li class="jobs-list__item jobs-item heapp">
+								<li class="jobs-list__item jobs-item teamlead">
 									<h3 class="jobs-item__heading">РУКОВОДИТЕЛЬ ПРОЕКТА</h3>
 									<p class="text jobs-item__text">
 										Мы&nbsp;все время усовершенствуем свои проекты, стараемся
@@ -142,6 +153,85 @@
 									</p>
 								</li>
 							</ul>
+						</div>
+						<div class="tab__content" id="art">
+							<ul class="jobs-list list-reset">
+								<li class="jobs-list__item jobs-item spine">
+									<h3 class="jobs-item__heading">АНИМАТОР 2Д ГРАФИКИ</h3>
+									<p class="text jobs-item__text">
+										Анимации в&nbsp;игре бывают разные, это может быть движение
+										головой, удар, смерть героя и&nbsp;все это работа аниматора
+										2д&nbsp;графики, который берет нарисованные художником
+										персонажи и&nbsp;оживляет их&nbsp;с&nbsp;помощью программы
+										Spine. У&nbsp;нас растут проекты, увеличивается количество
+										персонажей в&nbsp;играх, и&nbsp;их&nbsp;нужно оживлять.
+										Мы&nbsp;ищем будущего коллегу, который будет давать
+										&laquo;жизнь&raquo; нашей игре, будет рукой или ногой нашего
+										персонажа, будет делать свою работу с&nbsp;удовольствием!
+									</p>
+								</li>
+								<li class="jobs-list__item jobs-item adobe-ps">
+									<h3 class="jobs-item__heading">ХУДОЖНИК 2Д ГРАФИКИ</h3>
+									<p class="text jobs-item__text">
+										Каждый раз, думая о&nbsp;нашем новом сотруднике
+										на&nbsp;должности художника 2д&nbsp;графики,
+										мы&nbsp;понимаем, что он&nbsp;будет рисовать
+										и&nbsp;придумывать&nbsp;то, что потом увидят наши игроки.
+										И&nbsp;это может быть нереальный персонаж,
+										с&nbsp;посторонними предметами в&nbsp;голове, как
+										в&nbsp;игре WonderMatch или красочные локации, как
+										на&nbsp;Summer Friends. И&nbsp;это самое дорогое
+										и&nbsp;запоминающееся в&nbsp;игре! Если хотите рисовать
+										и&nbsp;развиваться с&nbsp;нами, пишите нам! Требуемый опыт
+										работы: 1&ndash;3 года Полная занятость, полный день
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="tab__content" id="testing">
+							<ul class="jobs-list list-reset">
+								<li class="jobs-list__item jobs-item gamepad">
+									<h3 class="jobs-item__heading">
+										МЛАДШИЙ ТЕСТИРОВЩИК МОБИЛЬНЫХ ПРИЛОЖЕНИЙ
+									</h3>
+									<p class="text jobs-item__text">
+										Тестировщик на&nbsp;проекте&nbsp;&mdash; это один
+										из&nbsp;главных сотрудников команды. Уверены, все всегда
+										думают, что тестировщик&nbsp;&mdash; это просто. Это
+										совершенно верно, если вы&nbsp;уже тестировали мобильные
+										игры и&nbsp;знаете, как это делать. А&nbsp;если
+										вы&nbsp;знаете технологии тестирования, планируете
+										погрузиться в&nbsp;процесс производства мобильных игр или
+										когда-то мечтали быть причастным и&nbsp;находиться
+										по&nbsp;ту&nbsp;сторону разработки игры, мы&nbsp;будем рады
+										видеть вас в&nbsp;наших рядах!
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="tab__content" id="marketing">
+							<ul class="jobs-list list-reset">
+								<li class="jobs-list__item jobs-item adobe-ae">
+									<h3 class="jobs-item__heading">МОУШН-ДИЗАЙНЕР</h3>
+									<p class="text jobs-item__text">
+										Любите видеть результат своего труда, нравится разнообразие
+										в&nbsp;креативах, хочешь делать видеоролики для рекламных
+										кампаний, знаешь Adobe After Effects, Adobe Premiere,
+										Photoshop. Ура, вы&nbsp;наши будущие сотрудники!
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="jobs__text jobs-list__item heapp">
+							<h3 class="jobs-item__heading">НЕ НАШЛИ ПОДХОДЯЩЕЙ ВАКАНСИИ?</h3>
+							<p class="text jobs-item__text">
+								Мы&nbsp;всегда рады познакомиться со&nbsp;специалистом, который
+								увлечен тем, что он&nbsp;делает, и&nbsp;сможет принести знания
+								или навыки, которыми мы&nbsp;пока не&nbsp;обладаем:
+								<a href="mailto:job@heapp.games" class="link link-reset"
+									>job@heapp.games</a
+								>
+							</p>
 						</div>
 					</div>
 				</section>
