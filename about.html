@@ -15,11 +15,6 @@
 			content="Создавать игровые миры так же интересно и увлекательно,как и гулять по ним. Попробуй с нами !!!"
 		/>
 		<link rel="shortcut icon" href="favicon.ico" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
-		/>
-		<link rel="stylesheet" href="./css/slider.css" />
 		<link rel="stylesheet" href="./css/style.css" />
 		<link
 			media="screen and (max-width:1441px)"
@@ -61,11 +56,11 @@
 						горизонты и&nbsp;живем в&nbsp;радость.
 					</p>
 					<div class="slider-container" id="customize_wrapper">
-						<div class="customize about-us__slider-wrapper" id="customize">
+						<div class="about-us-slider__wrapper" id="slider">
 							<div class="about-us__slide about-us-slide">
 								<div class="img-wrap">
 									<img
-										src="../assets/images/Andr.jpg"
+										src="../assets/images/summer-friends.jpg"
 										alt=""
 										class="about-us-slide__img"
 									/>
@@ -96,10 +91,10 @@
 									</p>
 								</div>
 							</div>
-							<div class="about-us__slide about-us-slide">
+							<div class="about-us__slide about-us-slide hidden">
 								<div class="img-wrap">
 									<img
-										src="../assets/images/Art.jpg"
+										src="../assets/images/art-meme.jpg"
 										alt=""
 										class="about-us-slide__img"
 									/>
@@ -122,7 +117,7 @@
 									</p>
 								</div>
 							</div>
-							<div class="about-us__slide about-us-slide">
+							<div class="about-us__slide about-us-slide hidden">
 								<div class="img-wrap">
 									<img
 										src="../assets/images/about_p.jpg"
@@ -144,22 +139,22 @@
 									</p>
 								</div>
 							</div>
+							<div class="about-us-slider__buttons"></div>
 						</div>
-						<div class="customize-tools">
-							<ul
-								class="thumbnails about-us__thumbnails"
-								id="customize-thumbnails"
-							>
-								<li class="about-us__thumbnail">
+						<div class="about-us-slider__sidebar">
+							<ul class="thumbnails about-us__thumbnails" id="slider-nav">
+								<li class="about-us__thumbnail is-active">
 									<img
 										src="../assets/images/andrey.jpeg"
 										alt="Андрей, Project Lead"
 										class="about-us-thumb-img"
+										data-target="0"
 									/>
 									<img
 										src="../assets/images/summer-friends.jpg"
 										alt="Андрей с персонажами Summer Friends"
 										class="about-us-thumb-img preview"
+										data-target="0"
 									/>
 								</li>
 								<li class="about-us__thumbnail">
@@ -167,11 +162,13 @@
 										src="../assets/images/irina_art-dir.png"
 										alt="Ирина, Арт-менеджер"
 										class="about-us-thumb-img"
+										data-target="1"
 									/>
 									<img
 										src="../assets/images/art-meme.jpg"
 										alt="Мем про опыт"
 										class="about-us-thumb-img preview"
+										data-target="1"
 									/>
 								</li>
 								<li class="about-us__thumbnail">
@@ -179,11 +176,13 @@
 										src="../assets/images/pavel.jpg"
 										alt="Павел, 2d художник"
 										class="about-us-thumb-img"
+										data-target="2"
 									/>
 									<img
 										src="../assets/images/about_p.jpg"
 										alt="Превью работы Павла"
 										class="about-us-thumb-img preview"
+										data-target="2"
 									/>
 								</li>
 							</ul>
@@ -419,23 +418,22 @@
 			</main>
 			<footer-component></footer-component>
 		</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 		<script src="./script/main.js"></script>
 		<script>
-			const slider = tns({
-				container: '#customize',
-				items: 1,
-				speed: 650,
-				mode: 'gallery',
-				controlsPosition: 'bottom',
-				navContainer: '#customize-thumbnails',
-				navAsThumbnails: true,
-				autoplay: false,
-				arrowKeys: true,
-				mouseDrag: true,
-				rewind: false,
-				loop: false,
-			});
+			const slides = document.getElementsByClassName('about-us-slide');
+			const btnsContainer = document.querySelector('.about-us-slider__buttons');
+			const navItems = document.querySelectorAll('.about-us-thumb-img');
+			activateSlider(slides, btnsContainer);
+			Array.from(navItems).forEach((item) =>
+				item.addEventListener('click', () => {
+					changeSlide(Number(item.dataset.target), slides);
+					toggleClass(
+						Number(item.dataset.target),
+						item.parentElement,
+						'is-active'
+					);
+				})
+			);
 		</script>
 	</body>
 </html>

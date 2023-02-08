@@ -43,3 +43,68 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	);
 });
+// create employees slider
+const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
+	const navItems = document.querySelectorAll('.about-us-thumb-img');
+	for (let [index, slide] of Array.from(sliderElem).entries()) {
+		const sliderBtn = document.createElement('button');
+		sliderBtn.classList.add('btn-reset', 'about-us-slider__btn');
+		sliderBtn.setAttribute('id', `btn-${index}`);
+		sliderBtn.addEventListener('click', () => {
+			changeSlide(index, sliderElem);
+			toggleClass(
+				index,
+				Array.from(document.querySelectorAll('.about-us-slider__btn')),
+				'is-active'
+			);
+
+			navItems.forEach((item) => {
+				if (item.dataset.target == index) {
+					toggleClass(index, item.parentElement, 'is-active');
+				}
+			});
+		});
+		sliderControls.append(sliderBtn);
+	}
+
+	document.getElementById(`btn-${currentIndex}`).classList.toggle('is-active');
+};
+function changeSlide(i, sliderElem) {
+	currentIndex = i;
+	Array.from(sliderElem).forEach((item, index) => {
+		index === currentIndex
+			? item.classList.remove('hidden')
+			: item.classList.add('hidden');
+	});
+}
+function toggleClass(i, targetEl, targetClass) {
+	if (Array.isArray(targetEl)) {
+		targetEl.forEach((btn) => {
+			btn.classList.remove(targetClass);
+		});
+		targetEl[i].classList.add(targetClass);
+	} else {
+		targetEl.classList.add(targetClass);
+		const siblings = getSiblings(targetEl);
+		siblings.forEach((el) => el.classList.remove(targetClass));
+	}
+}
+let getSiblings = function (e) {
+	// for collecting siblings
+	let siblings = [];
+	// if no parent, return no sibling
+	if (!e.parentNode) {
+		return siblings;
+	}
+	// first child of the parent node
+	let sibling = e.parentNode.firstChild;
+
+	// collecting siblings
+	while (sibling) {
+		if (sibling.nodeType === 1 && sibling !== e) {
+			siblings.push(sibling);
+		}
+		sibling = sibling.nextSibling;
+	}
+	return siblings;
+};
