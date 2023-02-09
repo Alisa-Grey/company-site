@@ -50,6 +50,7 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 		const sliderBtn = document.createElement('button');
 		sliderBtn.classList.add('btn-reset', 'about-us-slider__btn');
 		sliderBtn.setAttribute('id', `btn-${index}`);
+		sliderBtn.setAttribute('aria-label', 'Поменять слайд');
 		sliderBtn.addEventListener('click', () => {
 			changeSlide(index, sliderElem);
 			toggleClass(
@@ -90,16 +91,11 @@ function toggleClass(i, targetEl, targetClass) {
 	}
 }
 let getSiblings = function (e) {
-	// for collecting siblings
 	let siblings = [];
-	// if no parent, return no sibling
 	if (!e.parentNode) {
 		return siblings;
 	}
-	// first child of the parent node
 	let sibling = e.parentNode.firstChild;
-
-	// collecting siblings
 	while (sibling) {
 		if (sibling.nodeType === 1 && sibling !== e) {
 			siblings.push(sibling);

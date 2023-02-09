@@ -147,42 +147,54 @@
 									<img
 										src="../assets/images/andrey.jpeg"
 										alt="Андрей, Project Lead"
+										aria-label="Перейти на слайд про Андрея"
 										class="about-us-thumb-img"
 										data-target="0"
+										tabindex="0"
 									/>
 									<img
 										src="../assets/images/summer-friends.jpg"
 										alt="Андрей с персонажами Summer Friends"
+										aria-label="Перейти на слайд про Андрея"
 										class="about-us-thumb-img preview"
 										data-target="0"
+										tabindex="0"
 									/>
 								</li>
 								<li class="about-us__thumbnail">
 									<img
 										src="../assets/images/irina_art-dir.png"
 										alt="Ирина, Арт-менеджер"
+										aria-label="Перейти на слайд про Ирину"
 										class="about-us-thumb-img"
 										data-target="1"
+										tabindex="0"
 									/>
 									<img
 										src="../assets/images/art-meme.jpg"
 										alt="Мем про опыт"
+										aria-label="Перейти на слайд про Ирину"
 										class="about-us-thumb-img preview"
 										data-target="1"
+										tabindex="0"
 									/>
 								</li>
 								<li class="about-us__thumbnail">
 									<img
 										src="../assets/images/pavel.jpg"
 										alt="Павел, 2d художник"
+										aria-label="Перейти на слайд про Павла"
 										class="about-us-thumb-img"
 										data-target="2"
+										tabindex="0"
 									/>
 									<img
 										src="../assets/images/about_p.jpg"
 										alt="Превью работы Павла"
+										aria-label="Перейти на слайд про Павла"
 										class="about-us-thumb-img preview"
 										data-target="2"
+										tabindex="0"
 									/>
 								</li>
 							</ul>
@@ -423,17 +435,31 @@
 			const slides = document.getElementsByClassName('about-us-slide');
 			const btnsContainer = document.querySelector('.about-us-slider__buttons');
 			const navItems = document.querySelectorAll('.about-us-thumb-img');
+
+			const addSliderEvents = (el) => {
+				changeSlide(Number(el.dataset.target), slides);
+				toggleClass(Number(el.dataset.target), el.parentElement, 'is-active');
+				toggleClass(
+					Number(el.dataset.target),
+					Array.from(document.querySelectorAll('.about-us-slider__btn')),
+					'is-active'
+				);
+			};
+
 			activateSlider(slides, btnsContainer);
 			Array.from(navItems).forEach((item) =>
 				item.addEventListener('click', () => {
-					changeSlide(Number(item.dataset.target), slides);
-					toggleClass(
-						Number(item.dataset.target),
-						item.parentElement,
-						'is-active'
-					);
+					addSliderEvents(item);
 				})
 			);
+
+			Array.from(navItems).forEach((item) => {
+				item.addEventListener('keypress', (e) => {
+					if (e.code === 'Enter') {
+						addSliderEvents(item);
+					}
+				});
+			});
 		</script>
 	</body>
 </html>
