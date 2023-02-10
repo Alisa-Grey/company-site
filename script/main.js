@@ -50,6 +50,7 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 		const sliderBtn = document.createElement('button');
 		sliderBtn.classList.add('btn-reset', 'about-us-slider__btn');
 		sliderBtn.setAttribute('id', `btn-${index}`);
+		slide.setAttribute('id', `slide-${index}`);
 		sliderBtn.setAttribute('aria-label', 'Поменять слайд');
 		sliderBtn.addEventListener('click', () => {
 			changeSlide(index, sliderElem);
