@@ -71,6 +71,36 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 
 	document.getElementById(`btn-${currentIndex}`).classList.toggle('is-active');
 };
+// add navigation for touchscreens
+let touchstartX = 0;
+let touchendX = 0;
+
+function handleTouchStart(event) {
+	event.preventDefault();
+	touchstartX = event.changedTouches[0].screenX;
+}
+function handleTouchMove(event) {
+	event.preventDefault();
+}
+function handleTouchEnd(event) {
+	event.preventDefault();
+	touchendX = event.changedTouches[0].screenX;
+	const targetId = Number(
+		event.target.closest('.about-us-slide').getAttribute('id').split('-')[1]
+	);
+	const lastIndex = Array.from(slides).length - 1;
+	if (touchstartX < touchendX) {
+		targetId !== 0 ? (nextIndex = targetId - 1) : (nextIndex = lastIndex);
+	} else if (touchstartX > touchendX) {
+		targetId !== lastIndex ? (nextIndex = targetId + 1) : (nextIndex = 0);
+	}
+	changeSlide(nextIndex, slides);
+	toggleClass(
+		nextIndex,
+		Array.from(document.querySelectorAll('.about-us-slider__btn')),
+		'is-active'
+	);
+}
 function changeSlide(i, sliderElem) {
 	currentIndex = i;
 	Array.from(sliderElem).forEach((item, index) => {

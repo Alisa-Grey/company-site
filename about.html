@@ -463,44 +463,11 @@
 					}
 				});
 			});
-			// new
-			let touchstartX = 0;
-			let touchendX = 0;
-			Array.from(slides).forEach((el) => {
-				el.addEventListener('touchstart', handleStart, false);
-				el.addEventListener('touchend', handleEnd, false);
-				el.addEventListener('touchmove', handleMove, false);
+			Array.from(slides).forEach((slide) => {
+				slide.addEventListener('touchstart', handleTouchStart, false);
+				slide.addEventListener('touchend', handleTouchEnd, false);
+				slide.addEventListener('touchmove', handleTouchMove, false);
 			});
-
-			function handleStart(event) {
-				event.preventDefault();
-				touchstartX = event.changedTouches[0].screenX;
-			}
-			function handleMove(event) {
-				event.preventDefault();
-			}
-			function handleEnd(event) {
-				event.preventDefault();
-				touchendX = event.changedTouches[0].screenX;
-				const targetId = Number(
-					event.target
-						.closest('.about-us-slide')
-						.getAttribute('id')
-						.split('-')[1]
-				);
-				const lastIndex = Array.from(slides).length - 1;
-				if (touchstartX < touchendX) {
-					targetId !== 0 ? (nextIndex = targetId - 1) : (nextIndex = lastIndex);
-				} else if (touchstartX > touchendX) {
-					targetId !== lastIndex ? (nextIndex = targetId + 1) : (nextIndex = 0);
-				}
-				changeSlide(nextIndex, slides);
-				toggleClass(
-					nextIndex,
-					Array.from(document.querySelectorAll('.about-us-slider__btn')),
-					'is-active'
-				);
-			}
 		</script>
 	</body>
 </html>
