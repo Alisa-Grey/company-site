@@ -189,11 +189,11 @@ body {
 .hero::after {
 	content: '';
 	position: absolute;
-	right: 10vw;
-	bottom: -3vw;
-	width: 10vw;
-	height: 8vw;
-	border-bottom-right-radius: 40%;
+	right: 50px;
+	bottom: -100px;
+	width: 240px;
+	height: 130px;
+	border-bottom-right-radius: 80px;
 	background-color: var(--color-bg-darkviolet);
 	z-index: -1;
 }
@@ -569,10 +569,10 @@ footer-component {
 .process__subheading::after {
 	content: '';
 	position: absolute;
-	width: 141.05px;
-	height: 178px;
+	width: 141px;
+	height: 160px;
 	left: -20px;
-	top: -30%;
+	top: -14px;
 	background: var(--color-bg-darkviolet);
 	border-radius: 0px 0px 100px 0px;
 	z-index: -1;
@@ -585,7 +585,7 @@ footer-component {
 	position: relative;
 }
 .hero__text::after {
-	left: 10%;
+	left: 60px;
 }
 .features {
 	display: grid;
@@ -826,11 +826,12 @@ footer-component {
 }
 .team__subheading,
 .process__subheading {
+	display: inline-block;
 	position: relative;
 	margin-bottom: var(--margin-inner);
 }
 .team__subheading::after {
-	top: -190%;
+	top: -60px;
 	left: -60px;
 	width: 90px;
 	height: 95px;
@@ -866,7 +867,7 @@ footer-component {
 }
 .contact-us__text-wrap::after {
 	top: 35px;
-	left: -10%;
+	left: -50px;
 	width: 135px;
 	height: 135px;
 	background: rgba(240, 191, 1, 0.2);
@@ -907,10 +908,10 @@ footer-component {
 }
 
 .contact-us__link-wrap::after {
-	top: -10vw;
-	right: -4vw;
-	width: 10vw;
-	height: 10vw;
+	top: -170px;
+	right: -120px;
+	width: 190px;
+	height: 190px;
 	background-image: url(../assets/images/Dot.svg);
 	background-repeat: no-repeat;
 }
@@ -949,8 +950,8 @@ footer-component {
 .contacts-list::before,
 .responsibilities::before,
 .responsibilities::after {
-	width: 115px;
-	height: 115px;
+	width: 110px;
+	height: 110px;
 	background: var(--color-bg-violet);
 	border-radius: 0 0 0 100px;
 }
@@ -960,10 +961,10 @@ footer-component {
 	opacity: 0.7;
 }
 .contacts-list::after {
-	top: 31%;
-	right: -105%;
-	width: 7vw;
-	height: 7vw;
+	top: -50px;
+	right: -40px;
+	width: 135px;
+	height: 135px;
 	background-image: url(../assets/images/Dot.svg);
 	background-repeat: no-repeat;
 }
@@ -983,13 +984,13 @@ footer-component {
 	border-radius: 150px 0px 0px 0px;
 }
 .responsibilities::before {
-	bottom: -10%;
-	left: -3%;
+	bottom: -60px;
+	left: -62px;
 	opacity: 0.4;
 }
 .responsibilities::after {
-	top: -10%;
-	right: -3%;
+	top: -60px;
+	right: -65px;
 	transform: rotate(180deg);
 	opacity: 0.4;
 }
@@ -1121,6 +1122,10 @@ footer-component {
 	.container {
 		width: 70%;
 	}
+	.responsibilities {
+		margin: 0 auto;
+		margin-top: var(--margin-outer);
+	}
 	.hero {
 		justify-content: center;
 		width: 80%;
@@ -1128,7 +1133,9 @@ footer-component {
 		margin-bottom: var(--margin-outer);
 	}
 	.hero::after {
-		right: 1vw;
+		right: -43px;
+		bottom: -82px;
+		height: 190px;
 	}
 	.hero__img {
 		width: 45%;
@@ -1147,12 +1154,16 @@ footer-component {
 	}
 	/* contacts page */
 	.content-wrap.contacts {
-		width: 35%;
-		margin-left: 15%;
+		width: 65%;
+		margin-left: 7%;
 	}
 	.contacts__list {
 		justify-content: space-around;
 		font-size: 20px;
+	}
+	.contacts-list::before {
+		top: 94px;
+		left: -37px;
 	}
 	.contact-us__link-wrap::after {
 		top: -6vw;

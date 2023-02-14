@@ -1,5 +1,7 @@
 @media screen and (max-width: 1441px) {
-	.hero__heading,
+	.hero__heading {
+		font-size: 3.5vw;
+	}
 	.responsibilities__heading {
 		font-size: 2.5vw;
 	}
@@ -28,6 +30,10 @@
 	}
 	.video-wrap::after {
 		right: 0;
+	}
+	/* services page */
+	.services-heading {
+		font-size: 2.5vw;
 	}
 	/* contacts page */
 	.contacts-wrap {
@@ -124,7 +130,12 @@
 	}
 	.hero {
 		flex-direction: column;
-		margin-bottom: var(--gap);
+	}
+	.hero,
+	.process,
+	.team,
+	.contact-us {
+		margin-bottom: var(--margin);
 	}
 	.hero::after {
 		display: none;
@@ -133,6 +144,18 @@
 		order: -1;
 		border-top-right-radius: 10%;
 		border-bottom-left-radius: 30%;
+		margin-bottom: var(--margin-inner);
+	}
+	.hero > .content-wrap {
+		text-align: center;
+	}
+	.hero__text {
+		max-width: 100%;
+		line-height: 26px;
+	}
+	.hero__text::after {
+		left: 88%;
+		top: 40spx;
 	}
 	.footer {
 		padding-left: var(--gap);
@@ -177,37 +200,47 @@
 	.services-subheading {
 		text-align: center;
 	}
-	.hero__img {
-		margin-bottom: var(--margin-inner);
-	}
-	.hero__text {
-		max-width: 100%;
-	}
-	.hero__text::after {
-		left: 80%;
-		top: -207px;
-	}
+
 	.process__img {
 		margin-right: var(--margin-inner);
 	}
 	.process__subheading::after {
 		left: -4px;
 	}
-	.link {
+	.link,
+	.contacts-list__text {
 		font-size: 21px;
 	}
 	.contact-us {
+		flex-direction: column;
 		padding-left: var(--margin-inner);
 		padding-right: var(--margin-inner);
+		text-align: center;
+	}
+	.contact-us__text-wrap {
+		margin-bottom: var(--margin-inner);
+	}
+	.contact-us__text-wrap::after {
+		top: -20px;
+		left: -45px;
+		width: 120px;
+		height: 120px;
+		transform: rotate(-180deg);
 	}
 	.contact-us__text {
 		font-size: 20px;
 	}
 	.contact-us__link-wrap::before {
-		top: -53px;
-		left: -140px;
-		width: 51vw;
-		height: 198px;
+		top: -19px;
+		left: 0;
+		width: 34vw;
+		height: 100px;
+	}
+	.contact-us__link-wrap::after {
+		top: -177px;
+		right: -160px;
+		width: 160px;
+		height: 160px;
 	}
 	/* contacts page */
 	.contacts {
@@ -219,36 +252,68 @@
 	}
 	.contacts-list {
 		justify-content: center;
-		padding: var(--margin-inner) var(--gap);
+		padding: var(--margin-inner);
+		border-radius: 35px;
 	}
 	.contacts-list::before {
-		top: 19px;
-		left: -50px;
-		width: 95px;
-		height: 95px;
+		top: 40px;
 	}
-	.contacts-list::after {
-		width: 9vw;
-		height: 9vw;
-		top: -20%;
-		right: -5%;
+	.contacts-list__item:first-child {
+		margin-left: var(--margin-inner);
 	}
-	/* responsibilities list */
-	.responsibilities::before,
-	.responsibilities::after {
-		width: 10vw;
-		height: 10vw;
+	.contacts-list__item:last-child {
+		margin-right: var(--margin-inner);
 	}
 	.responsibilities::before {
 		left: -6%;
 		bottom: -15%;
 	}
-	.responsibilities::after {
-		top: -15%;
-		right: -6%;
+	/* responsibilities list */
+	.responsibilities__heading {
+		margin-top: var(--margin-inner);
 	}
 	.links-list__link {
 		font-size: 2vw;
+	}
+}
+@media screen and (max-width: 850px) {
+	/* services page */
+	.team__subheading::after {
+		display: none;
+	}
+	/* contacts page */
+	.contacts,
+	.contacts-img {
+		width: 90%;
+	}
+	.contacts {
+		margin: 0;
+	}
+	.contacts {
+		padding-left: var(--gap);
+		padding-right: var(--gap);
+	}
+	.contacts__list {
+		box-sizing: border-box;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 25px;
+	}
+	.contacts-list::before {
+		top: 204px;
+		left: -35px;
+		width: 80px;
+		height: 80px;
+	}
+	.contacts-list__item:not(:last-child) {
+		margin-right: 0;
+		margin-bottom: var(--margin-inner);
+	}
+	.contacts-list__item:first-child {
+		margin-left: 0;
+	}
+	.contacts-list__item:last-child {
+		margin-right: 0;
 	}
 }
 @media screen and (max-width: 600px) {
@@ -258,10 +323,22 @@
 	.header {
 		padding: 10px var(--gap);
 	}
-	.hero__heading,
-	.responsibilities__heading {
-		font-size: 4vw;
+	.hero__img {
+		width: 80%;
+	}
+	.hero__heading {
+		font-size: 5.5vw;
+	}
+	.responsibilities__heading,
+	.services-heading {
+		font-size: 4.5vw;
 		padding: 0;
+	}
+	.hero__text::after {
+		width: 100px;
+		height: 100px;
+		top: -247px;
+		left: 80%;
 	}
 	.footer {
 		flex-direction: column;
@@ -296,44 +373,76 @@
 		width: 12vw;
 		height: 12vw;
 	}
-	/* contacts page */
-	.contacts,
-	.contacts-img {
-		width: 90%;
+
+	/* services page */
+	.content-wrap {
+		width: 80%;
 	}
-	.contacts {
-		margin: 0;
+	.services-subheading {
+		font-size: 20px;
 	}
-	.contacts {
-		padding-left: var(--gap);
-		padding-right: var(--gap);
+	.team {
+		border-radius: 100px 0 100px 0;
 	}
-	.contacts__list {
-		box-sizing: border-box;
+	.team__subheading {
+		font-size: 24px;
+		text-align: center;
+	}
+	.team__subheading::after {
+		display: none;
+	}
+	.process {
 		flex-direction: column;
-		align-items: center;
-		border-radius: 25px;
 	}
-	.contacts-list::before {
-		top: 166px;
-	}
-	.contacts-list::after {
-		width: 20vw;
-		height: 20vw;
-		top: -27%;
-		right: -10vw;
-	}
-	.contacts-list__item {
-		font-size: 16px;
-	}
-	.contacts-list__item:not(:last-child) {
+	.process__img {
+		max-width: 85%;
 		margin-right: 0;
 		margin-bottom: var(--margin-inner);
 	}
+	.process__subheading {
+		font-size: 22px;
+		text-align: center;
+	}
+	.process-list {
+		padding-left: var(--margin-inner);
+	}
+	.contact-us__text-wrap::after {
+		top: -29px;
+		left: 239px;
+		width: 100px;
+		height: 100px;
+		transform: rotateX(180deg);
+	}
+	.contact-us__link-wrap {
+		width: 70%;
+	}
+	.contact-us__link-wrap::before {
+		left: -26px;
+		width: 280px;
+	}
+	.contact-us__link-wrap::after {
+		display: none;
+	}
+	.contact-us__text {
+		font-size: 18px;
+	}
 	/* responsibilities */
 	.responsibilities {
-		margin: var(--gap) var(--margin-inner);
+		margin: var(--gap);
 		border-top-left-radius: 40px;
+	}
+	.responsibilities::before,
+	.responsibilities::after {
+		width: 50px;
+		height: 50px;
+	}
+	.responsibilities::before {
+		bottom: -27px;
+		left: -30px;
+	}
+	.responsibilities::after {
+		top: -27px;
+		right: -30px;
 	}
 	.responsibilities__heading {
 		margin-top: 10px;
@@ -368,19 +477,51 @@
 	.hero__heading {
 		font-size: 5vw;
 	}
+	/* services */
+	.hero__img,
+	.content-wrap {
+		width: 90%;
+	}
+	.hero__text::after {
+		display: none;
+	}
+	.team {
+		padding: var(--gap) var(--margin-inner);
+	}
+	.process__img {
+		max-width: 100%;
+	}
+	.link {
+		font-size: 18px;
+	}
+	.contact-us__text-wrap::after {
+		top: -13px;
+		left: 150px;
+	}
+	.contact-us__link-wrap {
+		width: 90%;
+	}
+	.contact-us__link-wrap::before {
+		left: -34px;
+	}
+	.contact-us__link {
+		font-size: 13px;
+	}
 	/* contacts */
+	.contacts {
+		padding-left: var(--margin-inner);
+		padding-right: var(--margin-inner);
+	}
 	.contacts-list::before {
-		top: 53vw;
-		left: -9vw;
+		top: 196px;
+		left: -26px;
+	}
+	.contacts-list::after {
+		width: 90px;
+		height: 90px;
 	}
 	/* responsibilities */
 	.responsibilities__heading {
 		font-size: 4vw;
-	}
-	.responsibilities::before {
-		bottom: -9%;
-	}
-	.responsibilities::after {
-		top: -9%;
 	}
 }
