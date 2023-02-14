@@ -409,9 +409,9 @@
 	.contact-us__text-wrap::after {
 		top: -29px;
 		left: 239px;
-		width: 100px;
-		height: 100px;
-		transform: rotateX(180deg);
+		width: 90px;
+		height: 130px;
+		transform: rotateX(45deg);
 	}
 	.contact-us__link-wrap {
 		width: 70%;
@@ -474,6 +474,11 @@
 		width: 35px;
 		height: 25px;
 	}
+	.hero,
+	.team,
+	.process {
+		margin-bottom: var(--gap);
+	}
 	.hero__heading {
 		font-size: 5vw;
 	}
@@ -485,40 +490,69 @@
 	.hero__text::after {
 		display: none;
 	}
+	.services-subheading {
+		font-size: 18px;
+	}
 	.team {
 		padding: var(--gap) var(--margin-inner);
+	}
+	.process > .content-wrap {
+		width: 98%;
 	}
 	.process__img {
 		max-width: 100%;
 	}
+	.process__subheading::after {
+		width: 130px;
+		height: 130px;
+	}
 	.link {
 		font-size: 18px;
 	}
+	.contact-us {
+		padding: 0;
+	}
 	.contact-us__text-wrap::after {
-		top: -13px;
-		left: 150px;
+		top: -23px;
+		left: 200px;
 	}
 	.contact-us__link-wrap {
 		width: 90%;
 	}
 	.contact-us__link-wrap::before {
-		left: -34px;
+		left: 10px;
 	}
 	.contact-us__link {
-		font-size: 13px;
+		font-size: 14px;
 	}
 	/* contacts */
+	.contatc-us {
+		padding: 0;
+	}
 	.contacts {
-		padding-left: var(--margin-inner);
-		padding-right: var(--margin-inner);
+		padding: var(--margin-inner) var(--margin-inner) 0;
 	}
 	.contacts-list::before {
 		top: 196px;
 		left: -26px;
 	}
 	.contacts-list::after {
+		right: -25px;
 		width: 90px;
 		height: 90px;
+	}
+	.contacts-list__text {
+		font-size: 18px;
+	}
+	.contact-us__text,
+	.contact-us .link {
+		font-size: 16px;
+	}
+	.contact-us .link {
+		margin-bottom: 10px;
+	}
+	.contact-us__text--small {
+		font-size: 14px;
 	}
 	/* responsibilities */
 	.responsibilities__heading {
