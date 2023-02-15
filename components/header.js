@@ -13,7 +13,7 @@ class Header extends HTMLElement {
 				<img class="header__logo-img" src="./assets/images/heapp_logo_light.png" alt="HeappGames logo" />
 			</a>
 			<div class="header__burger-container">
-				<input type="checkbox" class="header__burger burger" id="toggle-menu" />
+				<input type="checkbox" class="header__burger burger" id="toggle-menu" aria-label="Меню"/>
 				<div class="burger__lines">
 					<span class="burger__line burger__line1"></span>
 					<span class="burger__line burger__line2"></span>

@@ -1,0 +1,17 @@
+{
+  "name": "Сайт компании Heapp Games",
+  "lang": "ru",
+  "short_name": "Heapp Games",
+  "description": "Создавать игровые миры так же интересно и увлекательно,как и гулять по ним. Попробуй с нами",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "orientation": "any",
+  "icons": [
+      {
+        "src": "/prew_heapp_games.jpg",
+        "sizes": "512x512"
+      }
+  ]
+}

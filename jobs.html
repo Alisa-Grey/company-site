@@ -10,15 +10,16 @@
 		/>
 		<meta property="og:image" content="/build/images/Prew_Heapp_Games.jpg" />
 		<meta property="og:title" content="Работа у нас / HeappGames" />
+		<link rel="apple-touch-icon" href="heapp_logo_light_square.png" />
 		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<link
 			media="screen and (max-width:1441px)"
 			rel="stylesheet"
-			href="./css/media.css"
+			href="/css/media.css"
 		/>
-		<script src="./components/header.js"></script>
-		<script src="./components/footer.js"></script>
+		<script src="/components/header.js"></script>
+		<script src="/components/footer.js"></script>
 		<title>Работа у нас / HeappGames</title>
 	</head>
 	<body>
@@ -33,11 +34,48 @@
 							у&nbsp;нас приветствуется играть в&nbsp;игры!
 						</p>
 					</div>
-					<img
-						class="top-img hero__img"
-						src="./assets/images/jobs_hero.jpg"
-						alt="Heapp games office - screen"
-					/>
+					<picture>
+						<source
+							media="max-width: 800px"
+							type="image/webp"
+							srcset="/assets/images/jobs_hero_360.webp"
+						/>
+						<source
+							media="max-width: 800px"
+							type="image/jpg"
+							srcset="/assets/images/jobs_hero_360.jpg"
+						/>
+						<source
+							media="max-width: 1450px"
+							type="image/webp"
+							srcset="/assets/images/jobs_hero_660.webp"
+						/>
+						<source
+							media="max-width: 1450px"
+							type="image/jpg"
+							srcset="/assets/images/jobs_hero_660.jpg"
+						/>
+						<source
+							media="min-width: 1451px"
+							type="image/webp"
+							srcset="/assets/images/jobs_hero.webp"
+						/>
+						<source
+							media="min-width: 1451px"
+							type="image/jpg"
+							srcset="/assets/images/jobs_hero.jpg"
+						/>
+						<img
+							class="top-img hero__img"
+							src="/assets/images/jobs_hero.jpg"
+							srcset="
+								/assets/images/jobs-hero_360.jpg  800w,
+								/assets/images/jobs_hero_660.jpg 1450w,
+								/assets/images/jobs-hero.jpg     1451w
+							"
+							alt="Heapp games office - screen"
+						/>
+					</picture>
 				</section>
 				<div class="container">
 					<section class="features">
@@ -96,11 +134,38 @@
 						</ul>
 					</section>
 				</div>
-				<img
-					class="map"
-					src="./assets/images/map.jpg"
-					alt="офис Heapp games на карте"
-				/>
+				<picture>
+					<source
+						media="max-width: 800px"
+						type="image/webp"
+						srcset="/assets/images/map_360.webp"
+					/>
+					<source
+						media="max-width: 800px"
+						type="image/jpg"
+						srcset="/assets/images/map_360.jpg"
+					/>
+
+					<source
+						media="min-width: 1451px"
+						type="image/webp"
+						srcset="/assets/images/map.webp"
+					/>
+					<source
+						media="min-width: 1451px"
+						type="image/jpg"
+						srcset="/assets/images/map.jpg"
+					/>
+					<img
+						class="map"
+						src="/assets/images/map.jpg"
+						srcset="
+							/assets/images/map_360.jpg  800w,
+							/assets/images/map.jpg     1451w
+						"
+						alt="офис Heapp games на карте"
+					/>
+				</picture>
 				<section class="jobs">
 					<div class="container">
 						<h2 class="heading jobs__heading">Наши вакансии</h2>
@@ -238,6 +303,6 @@
 			</main>
 			<footer-component></footer-component>
 		</div>
-		<script src="./script/main.js"></script>
+		<script src="/script/main.js"></script>
 	</body>
 </html>

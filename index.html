@@ -14,15 +14,16 @@
 			property="og:description"
 			content="Создавать игровые миры так же интересно и увлекательно,как и гулять по ним. Попробуй с нами !!!"
 		/>
+		<link rel="apple-touch-icon" href="heapp_logo_light_square.png" />
 		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<link
 			media="screen and (max-width:1441px)"
 			rel="stylesheet"
-			href="./css/media.css"
+			href="/css/media.css"
 		/>
-		<script src="./components/header.js"></script>
-		<script src="./components/footer.js"></script>
+		<script src="/components/header.js"></script>
+		<script src="/components/footer.js"></script>
 		<title>Главная / Heapp Games</title>
 	</head>
 	<body>
@@ -32,11 +33,21 @@
 				<section class="summer-friends section projects-container">
 					<div class="fixed">
 						<div class="section__content-wrap">
-							<img
-								class="section__logo summer-friends__logo"
-								src="./assets/images/summerfriends_logo.png"
-								alt="Summer friends logo"
-							/>
+							<picture>
+								<source
+									type="image/webp"
+									srcset="/assets/images/summerfriends_logo.webp"
+								/>
+								<source
+									type="image/png"
+									srcset="/assets/images/summerfriends_logo.png"
+								/>
+								<img
+									class="section__logo summer-friends__logo"
+									src="/assets/images/summerfriends_logo.png"
+									alt="Summer friends logo"
+								/>
+							</picture>
 							<p class="section__text">
 								Игра в&nbsp;жанре &laquo;три в&nbsp;ряд&raquo; выполненная
 								в&nbsp;мультяшном, ярком и&nbsp;позитивном стиле. Огромное
@@ -49,7 +60,7 @@
 						<div class="video-wrap">
 							<video class="section__video" loop autoplay muted>
 								<source
-									src="./assets/video/summer_friends_trailer.mp4"
+									src="/assets/video/summer_friends_trailer.mp4"
 									type="video/mp4"
 								/>
 							</video>
@@ -59,11 +70,21 @@
 				<section class="darkest-afk section projects-container">
 					<div class="fixed">
 						<div class="section__content-wrap">
-							<img
-								class="section__logo darkest-afk__logo"
-								src="./assets/images/darkest_logo.png"
-								alt="Darkest AFK logo"
-							/>
+							<picture>
+								<source
+									type="image/webp"
+									srcset="/assets/images/darkest_logo.webp"
+								/>
+								<source
+									type="image/png"
+									srcset="/assets/images/darkest_logo.png"
+								/>
+								<img
+									class="section__logo darkest-afk__logo"
+									src="./assets/images/darkest_logo.png"
+									alt="Darkest AFK logo"
+								/>
+							</picture>
 							<p class="section__text">
 								Вы&nbsp;окунетесь в&nbsp;атмосферу классической ролевой игры
 								с&nbsp;уникальным геймплеем и&nbsp;персонажами. Сразитесь
@@ -81,7 +102,7 @@
 								muted
 							>
 								<source
-									src="./assets/video/darkest_afk_trailer.mp4"
+									src="/assets/video/darkest_afk_trailer.mp4"
 									type="video/mp4"
 								/>
 							</video>
@@ -91,11 +112,21 @@
 				<section class="wondermatch section projects-container">
 					<div class="fixed">
 						<div class="section__content-wrap">
-							<img
-								class="section__logo wondermatch__logo"
-								src="./assets/images/wondermatch.png"
-								alt="Wondermatch logo"
-							/>
+							<picture>
+								<source
+									type="image/webp"
+									srcset="/assets/images/wondermatch.webp"
+								/>
+								<source
+									type="image/png"
+									srcset="/assets/images/wondermatch.png"
+								/>
+								<img
+									class="section__logo wondermatch__logo"
+									src="/assets/images/wondermatch.png"
+									alt="Wondermatch logo"
+								/>
+							</picture>
 							<p class="section__text">
 								Отправляйтесь навстречу необычным приключениям вместе
 								с&nbsp;Alice, узнайте какие секреты хранит в&nbsp;себе
@@ -105,7 +136,7 @@
 						<div class="video-wrap">
 							<video class="section__video" loop autoplay muted>
 								<source
-									src="./assets/video/wondermatch_trailer.mp4"
+									src="/assets/video/wondermatch_trailer.mp4"
 									type="video/mp4"
 								/>
 							</video>
@@ -115,6 +146,6 @@
 			</main>
 			<footer-component class="footer-component"></footer-component>
 		</div>
-		<script src="./script/main.js"></script>
+		<script src="/script/main.js"></script>
 	</body>
 </html>

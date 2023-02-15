@@ -14,15 +14,16 @@
 			property="og:description"
 			content="Создавать игровые миры так же интересно и увлекательно,как и гулять по ним. Попробуй с нами"
 		/>
+		<link rel="apple-touch-icon" href="heapp_logo_light_square.png" />
 		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<link
 		media="screen and (max-width:1441px)"
 		rel="stylesheet"
-		href="./css/media.css"
+		href="/css/media.css"
 	/>
-		<script src="./components/header.js"></script>
-		<script src="./components/footer.js"></script>
+		<script src="/components/header.js"></script>
+		<script src="/components/footer.js"></script>
 	</div>
 		<title>Обратная связь / Heapp Games</title>
 	</head>
@@ -52,7 +53,24 @@
 							</li>
 						</ul>
 				</div>
-				<img class="top-img hero__img contacts-img" src="./assets/images/Office8.png" alt="Часть офиса Heapp Games с комиксом на стене" />
+				<picture>
+					<source media="max-width: 800px" type="image/webp" srcset="/assets/images/Office8_360.webp" >
+					<source media="max-width: 800px" type="image/png" srcset="/assets/images/Office8_360.png" >
+					<source media="max-width: 1450px" type="image/webp" srcset="/assets/images/Office8_660.webp" >
+					<source media="max-width: 1450px" type="image/png" srcset="/assets/images/Office8_660.png" >
+					<source media="min-width: 1451px" type="image/webp" srcset="/assets/images/Office8.webp" >
+					<source media="min-width: 1451px" type="image/png" srcset="/assets/images/Office8.png" >
+					<img 
+					class="top-img hero__img contacts-img" 
+					src="/assets/images/Office8.png"  
+					srcset="
+					/assets/images/Office8_360.png 800w,
+					/assets/images/Office8_660.png 1450w,
+					/assets/images/Office8.png 1451w,
+					" 
+					alt="Часть офиса Heapp Games с комиксом на стене" 
+					/>
+				</picture>
 			</section>
 		</main>
 		<footer-component></footer-component>
