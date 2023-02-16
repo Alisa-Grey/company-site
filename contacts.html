@@ -18,62 +18,89 @@
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="stylesheet" href="/css/style.css" />
 		<link
-		media="screen and (max-width:1441px)"
-		rel="stylesheet"
-		href="/css/media.css"
-	/>
+			media="screen and (max-width:1441px)"
+			rel="stylesheet"
+			href="/css/media.css"
+		/>
 		<script src="/components/header.js"></script>
 		<script src="/components/footer.js"></script>
-	</div>
 		<title>Обратная связь / Heapp Games</title>
 	</head>
 	<body>
 		<div class="wrap">
-		<header-component></header-component>
-		<main class="main">
-			<section class="hero">
-				<div class="content-wrap contacts">
-					<h1 class="heading hero__heading">Связаться с нами</h1>
+			<header-component></header-component>
+			<main class="main">
+				<section class="hero">
+					<div class="content-wrap contacts">
+						<h1 class="heading hero__heading">Связаться с нами</h1>
 
 						<ul class="contacts__list contacts-list list-reset">
 							<li class="contacts-list__item">
-								<a href="mailto:info@heapp.games" class="link-reset link">info@heapp.games
+								<a href="mailto:info@heapp.games" class="link-reset link"
+									>info@heapp.games
 								</a>
 								<p class="contacts-list__text">Общие вопросы</p>
 							</li>
 							<li class="contacts-list__item">
-								<a href="mailto:support@heapp.games" class="link-reset link">support@heapp.games
+								<a href="mailto:support@heapp.games" class="link-reset link"
+									>support@heapp.games
 								</a>
 								<p class="contacts-list__text">Поддержка</p>
 							</li>
 							<li class="contacts-list__item">
-								<a href="mailto:job@heapp.games" class="link-reset link">job@heapp.games
+								<a href="mailto:job@heapp.games" class="link-reset link"
+									>job@heapp.games
 								</a>
 								<p class="contacts-list__text">Работа в&nbsp;компании</p>
 							</li>
 						</ul>
-				</div>
-				<picture>
-					<source media="max-width: 800px" type="image/webp" srcset="/assets/images/Office8_360.webp" >
-					<source media="max-width: 800px" type="image/png" srcset="/assets/images/Office8_360.png" >
-					<source media="max-width: 1450px" type="image/webp" srcset="/assets/images/Office8_660.webp" >
-					<source media="max-width: 1450px" type="image/png" srcset="/assets/images/Office8_660.png" >
-					<source media="min-width: 1451px" type="image/webp" srcset="/assets/images/Office8.webp" >
-					<source media="min-width: 1451px" type="image/png" srcset="/assets/images/Office8.png" >
-					<img 
-					class="top-img hero__img contacts-img" 
-					src="/assets/images/Office8.png"  
-					srcset="
-					/assets/images/Office8_360.png 800w,
-					/assets/images/Office8_660.png 1450w,
-					/assets/images/Office8.png 1451w,
-					" 
-					alt="Часть офиса Heapp Games с комиксом на стене" 
-					/>
-				</picture>
-			</section>
-		</main>
-		<footer-component></footer-component>
+					</div>
+					<picture>
+						<source
+							media="(max-width: 800px)"
+							type="image/webp"
+							srcset="/assets/images/Office8_360.webp"
+						/>
+						<source
+							media="(max-width: 800px)"
+							type="image/png"
+							srcset="/assets/images/Office8_360.png"
+						/>
+						<source
+							media="(max-width: 1450px)"
+							type="image/webp"
+							srcset="/assets/images/Office8_660.webp"
+						/>
+						<source
+							media="(max-width: 1450px)"
+							type="image/png"
+							srcset="/assets/images/Office8_660.png"
+						/>
+						<source
+							media="(min-width: 1451px)"
+							type="image/webp"
+							srcset="/assets/images/Office8.webp"
+						/>
+						<source
+							media="(min-width: 1451px)"
+							type="image/png"
+							srcset="/assets/images/Office8.png"
+						/>
+						<img
+							class="top-img hero__img contacts-img"
+							src="/assets/images/Office8.png"
+							srcset="
+								/assets/images/Office8_360.png  800w,
+								/assets/images/Office8_660.png 1450w,
+								/assets/images/Office8.png     1451w
+							"
+							sizes="(max-width: 800px) 800px, (max-width: 1450px) 1450px, (min-width: 1451px) 1451px"
+							alt="Часть офиса Heapp Games с комиксом на стене"
+						/>
+					</picture>
+				</section>
+			</main>
+			<footer-component></footer-component>
 		</div>
 		<script src="./script/main.js"></script>
 	</body>

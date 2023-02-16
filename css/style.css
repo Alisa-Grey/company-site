@@ -591,6 +591,8 @@ footer-component {
 	display: grid;
 	grid-template-columns: 500px 280px 200px;
 	grid-gap: var(--margin);
+	justify-content: center;
+	align-items: baseline;
 }
 .features::after,
 .features__heading::after,
@@ -645,7 +647,7 @@ footer-component {
 	padding: var(--margin-inner);
 	gap: 10px;
 	width: 15vw;
-	height: 13vw;
+	height: 16vw;
 	border: 1px solid #f2f2f2;
 	background-color: #fff;
 	box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.05);
