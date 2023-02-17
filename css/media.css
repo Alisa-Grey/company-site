@@ -376,6 +376,13 @@
 	}
 }
 @media screen and (max-width: 850px) {
+	.nav {
+		top: 79px;
+	}
+	.header__logo-img {
+		width: 50px;
+		height: 50px;
+	}
 	.link {
 		font-size: 18px;
 	}
@@ -383,8 +390,6 @@
 		margin-bottom: 10px;
 	}
 	/* about */
-	.about-us__avatar {
-	}
 	.about-us__text {
 		width: 100%;
 	}
@@ -483,12 +488,12 @@
 		bottom: 42%;
 	}
 	.features__list {
-		grid-template-rows: repeat(4, 270px);
+		grid-template-rows: repeat(4, 290px);
 		gap: var(--margin-inner);
 	}
 	.features-list__card {
 		width: 35vw;
-		height: 35vw;
+		height: 30vw;
 	}
 	.features-list__card::before {
 		width: 10.5vw;
@@ -502,6 +507,10 @@
 	.jobs__heading {
 		margin-bottom: var(--margin-inner);
 	}
+	.jobs__heading::after {
+		width: 72px;
+		height: 57px;
+	}
 	.tab__content {
 		width: 100%;
 		padding-left: var(--gap);
@@ -511,6 +520,9 @@
 	}
 	.jobs-list__item::after {
 		right: 50px;
+	}
+	.jobs-item__heading {
+		font-size: 18px;
 	}
 	.jobs-item__text {
 		width: 90%;
