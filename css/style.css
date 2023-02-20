@@ -100,7 +100,7 @@ body {
 .heading {
 	margin-bottom: 10px;
 	font-weight: 700;
-	font-size: 40px;
+	font-size: 2.5vw;
 	line-height: 110%;
 	text-transform: uppercase;
 }
@@ -119,7 +119,7 @@ body {
 }
 .text {
 	max-width: 75%;
-	line-height: 32px;
+	line-height: 1.5;
 }
 .link {
 	position: relative;
@@ -162,7 +162,9 @@ body {
 	color: #fff;
 	text-transform: uppercase;
 }
-.header__burger-container {
+.header__burger-container,
+.about-us__avatar,
+.about-us__thumbnail.is-active picture > .preview {
 	display: none;
 }
 .sticky {
@@ -198,7 +200,10 @@ body {
 	z-index: -1;
 }
 .hero__heading,
-.hero__subheading {
+.hero__subheading,
+.section__logo,
+.about-section__subheading--sm,
+.links-list__item {
 	margin-bottom: var(--margin-inner);
 }
 .hero__img {
@@ -221,7 +226,13 @@ footer-component {
 	font-size: 16px;
 	line-height: 160%;
 }
-.footer__link {
+.footer__link,
+.hero__text,
+.features,
+.features__heading,
+.features__text,
+.contact-us__text-wrap,
+.contact-us__link-wrap {
 	position: relative;
 }
 /* projects page */
@@ -247,7 +258,7 @@ footer-component {
 	left: 50%;
 	display: flex;
 	justify-content: center;
-	align-items: stretch;
+	align-items: centar;
 	width: 80%;
 	padding-bottom: 50px;
 }
@@ -255,20 +266,16 @@ footer-component {
 	top: 0;
 	z-index: 1;
 }
-.section:nth-child(1) .fixed {
-	transform: translate(-50%, -50%);
-}
 .section:nth-child(2) {
 	top: 100vh;
 	z-index: 2;
-}
-.section:nth-child(2) .fixed {
-	transform: translate(-50%, -50%);
 }
 .section:nth-child(3) {
 	top: 200vh;
 	z-index: 3;
 }
+.section:nth-child(1) .fixed,
+.section:nth-child(2) .fixed,
 .section:nth-child(3) .fixed {
 	transform: translate(-50%, -50%);
 }
@@ -277,18 +284,19 @@ footer-component {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 35%;
+	width: 40%;
 	margin-right: 6vw;
 }
 .video-wrap {
 	position: relative;
 	width: 52%;
-	padding: 40px 0 0;
+	padding-top: 3vw;
+	padding-right: 3vw;
 }
 .video-wrap::after {
 	content: '';
 	position: absolute;
-	right: -6%;
+	right: 0;
 	top: -18px;
 	width: 8vw;
 	height: 8vw;
@@ -300,12 +308,9 @@ footer-component {
 	width: 100%;
 	border-radius: 20px;
 }
-.section__logo {
-	margin-bottom: var(--margin-inner);
-}
 .section__text {
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 1rem;
 	line-height: 160%;
 	color: #fff;
 }
@@ -313,19 +318,19 @@ footer-component {
 	background-color: #03b1fe;
 }
 .summer-friends__logo {
-	width: 350px;
+	width: 20vw;
 }
 .darkest-afk {
 	background-color: #000;
 }
 .darkest-afk__logo {
-	width: 250px;
+	width: 14vw;
 }
 .wondermatch {
 	background-color: #0663b1;
 }
 .wondermatch__logo {
-	width: 400px;
+	width: 25vw;
 }
 .footer-component {
 	position: absolute;
@@ -342,12 +347,12 @@ footer-component {
 .contact-us {
 	margin-bottom: var(--margin-outer);
 }
-.about-us {
+.about-us,
+.about-us-slider__wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-
 .about-us__text {
 	position: relative;
 	width: 45%;
@@ -371,11 +376,7 @@ footer-component {
 	display: inline-flex;
 	flex-wrap: nowrap;
 }
-.about-us-slider__wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
+
 .about-us-slide {
 	display: inline-flex;
 	justify-content: space-evenly;
@@ -427,9 +428,6 @@ footer-component {
 	justify-content: center;
 	align-items: center;
 }
-.about-us__avatar {
-	display: none;
-}
 .about-us-slide:nth-child(2) .about-us-slide__img {
 	border-radius: 10%;
 }
@@ -440,7 +438,8 @@ footer-component {
 .about-us-slide > .content-wrap {
 	padding-left: 0;
 }
-.about-us-slide__heading {
+.about-us-slide__heading,
+.card__text {
 	text-align: center;
 }
 .about-us-slide__text {
@@ -468,8 +467,12 @@ footer-component {
 	border-color: var(--color-main);
 }
 .about-us__thumbnail {
+	display: flex !important;
+	justify-content: space-between;
+	align-items: flex-end;
 	width: 100% !important;
 	height: 100px;
+	margin-bottom: 10px;
 }
 .customize-tools {
 	height: 100%;
@@ -496,12 +499,6 @@ footer-component {
 .thumbnails img {
 	max-height: 6.5vw;
 }
-.about-us__thumbnail {
-	display: flex !important;
-	justify-content: space-between;
-	align-items: flex-end;
-	margin-bottom: 10px;
-}
 .about-us-thumb-img {
 	border-radius: 50%;
 	justify-self: flex-end;
@@ -525,9 +522,6 @@ footer-component {
 	height: 70px !important;
 	justify-self: flex-end;
 	align-self: flex-end;
-}
-.about-us__thumbnail.is-active picture > .preview {
-	display: none;
 }
 .about-section:last-child {
 	margin-bottom: calc(var(--margin-outer) * 2);
@@ -567,9 +561,6 @@ footer-component {
 .about-section__subheading {
 	margin-bottom: 10px;
 }
-.about-section__subheading--sm {
-	margin-bottom: var(--margin-inner);
-}
 .about-section__text {
 	position: relative;
 	max-width: 100%;
@@ -587,12 +578,6 @@ footer-component {
 	z-index: -1;
 }
 /* jobs page */
-.hero__text,
-.features,
-.features__heading,
-.features__text {
-	position: relative;
-}
 .hero__text::after {
 	left: 60px;
 }
@@ -620,13 +605,13 @@ footer-component {
 	z-index: -1;
 }
 .features::after {
-	top: 10%;
-	right: 10%;
-	width: 75%;
+	top: 7vw;
+	right: 4vw;
+	width: 85%;
 	height: 80%;
 }
 .features__heading {
-	width: 55%;
+	width: 90%;
 }
 .features__heading::after {
 	top: -85%;
@@ -636,6 +621,10 @@ footer-component {
 	background: var(--color-bg-blue);
 	border-radius: 0px 0px 100px 0px;
 	transform: rotate(-180deg);
+}
+.features__text {
+	max-width: 90%;
+	margin: 0 auto;
 }
 .features__text::after {
 	left: 0;
@@ -655,8 +644,8 @@ footer-component {
 	align-items: center;
 	padding: var(--margin-inner);
 	gap: 10px;
-	width: 15vw;
-	height: 16vw;
+	width: 255px;
+	height: 264px;
 	border: 1px solid #f2f2f2;
 	background-color: #fff;
 	box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.05);
@@ -666,7 +655,8 @@ footer-component {
 	content: '';
 	position: absolute;
 	top: var(--margin-inner);
-	left: 30%;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
@@ -765,8 +755,8 @@ footer-component {
 	position: absolute;
 	top: 25%;
 	right: 0;
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -797,7 +787,7 @@ footer-component {
 }
 .jobs-item__heading {
 	font-weight: 500;
-	font-size: 28px;
+	font-size: 1.6vw;
 	color: var(--color-main);
 	text-transform: uppercase;
 	margin-bottom: 10px;
@@ -816,7 +806,8 @@ footer-component {
 }
 .jobs__text::before {
 	top: -25%;
-	left: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 100%;
 	height: 150%;
 }
@@ -878,9 +869,6 @@ footer-component {
 	padding-left: var(--margin);
 	padding-right: var(--margin);
 }
-.contact-us__text-wrap {
-	position: relative;
-}
 .contact-us__text-wrap::after {
 	top: 35px;
 	left: -50px;
@@ -901,7 +889,7 @@ footer-component {
 	font-weight: 300;
 }
 .contact-us__link-wrap {
-	position: relative;
+	width: 40%;
 }
 .contact-us__text-wrap::after,
 .contact-us__link-wrap::before,
@@ -953,6 +941,7 @@ footer-component {
 	position: relative;
 	box-sizing: content-box;
 	display: flex;
+	justify-content: space-around;
 	align-items: flex-start;
 	width: 100%;
 	border-radius: 75px;
@@ -988,6 +977,7 @@ footer-component {
 	margin-right: var(--margin-inner);
 }
 .contacts-list__text {
+	font-size: 1rem;
 	color: var(--color-text);
 }
 /* social responsibilities */
@@ -1013,11 +1003,7 @@ footer-component {
 .responsibilities__heading {
 	margin-bottom: var(--gap);
 }
-.links-list__item {
-	margin-bottom: var(--margin-inner);
-}
 .links-list__link {
-	position: relative;
 	font-weight: 400;
 	font-size: 1.5vw;
 	line-height: 110%;
@@ -1164,7 +1150,7 @@ footer-component {
 		width: 360px;
 		height: 300px;
 	}
-	.features-list__card::before {
+	contact-us__link- .features-list__card::before {
 		left: 37%;
 	}
 	/* services page */
