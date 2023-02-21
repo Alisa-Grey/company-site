@@ -89,10 +89,15 @@ function handleTouchEnd(event) {
 		event.target.closest('.about-us-slide').getAttribute('id').split('-')[1]
 	);
 	const lastIndex = Array.from(slides).length - 1;
-	if (touchstartX < touchendX) {
+	if (touchstartX < touchendX && Math.abs(touchstartX - touchendX) > 10) {
 		targetId !== 0 ? (nextIndex = targetId - 1) : (nextIndex = lastIndex);
-	} else if (touchstartX > touchendX) {
+	} else if (
+		touchstartX > touchendX &&
+		Math.abs(touchstartX - touchendX) > 10
+	) {
 		targetId !== lastIndex ? (nextIndex = targetId + 1) : (nextIndex = 0);
+	} else {
+		nextIndex = targetId;
 	}
 	changeSlide(nextIndex, slides);
 	toggleClass(

@@ -532,7 +532,7 @@ footer-component {
 }
 .about-section__item {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	margin-bottom: var(--gap);
 }
@@ -747,7 +747,7 @@ footer-component {
 }
 .jobs-list__item {
 	position: relative;
-	width: 70%;
+	width: 80%;
 	margin-bottom: var(--margin);
 }
 .jobs-list__item::after {
@@ -1004,6 +1004,7 @@ footer-component {
 	margin-bottom: var(--gap);
 }
 .links-list__link {
+	position: relative;
 	font-weight: 400;
 	font-size: 1.5vw;
 	line-height: 110%;

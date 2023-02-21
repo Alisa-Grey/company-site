@@ -5,7 +5,7 @@
 	}
 	.nav {
 		position: absolute;
-		top: 75px;
+		top: 73px;
 		right: 0;
 		width: 300px;
 		height: auto;
@@ -410,6 +410,7 @@
 }
 
 @media screen and (max-width: 600px) {
+	.nav-list__link,
 	.responsibilities__heading,
 	.services-heading {
 		font-size: 4.5vw;
@@ -444,7 +445,7 @@
 	}
 	.tab__content {
 		width: 100%;
-		padding-left: 30px;
+		padding-left: var(--margin-inner);
 	}
 	.tab__link:not(:last-child) {
 		margin-right: 0;
@@ -453,7 +454,7 @@
 	.jobs-list__item {
 		width: 100%;
 		margin-bottom: var(--gap);
-		padding-left: var(--margin-inner);
+		padding-left: 0;
 	}
 	.jobs-item__text {
 		padding-left: 10px;
