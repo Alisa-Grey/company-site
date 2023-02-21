@@ -140,3 +140,19 @@ let getSiblings = function (e) {
 	}
 	return siblings;
 };
+// animate elements on scroll
+scrollElements = Array.from(document.getElementsByClassName('js-scroll'));
+let options = {
+	root: null,
+	threshold: 0.3,
+};
+let cb = (entries) => {
+	entries.forEach((entry) => {
+		entry.isIntersecting
+			? entry.target.classList.add('scrolled')
+			: entry.target.classList.remove('scrolled');
+	});
+};
+let observer = new IntersectionObserver(cb, options);
+
+scrollElements.forEach((el) => observer.observe(el));

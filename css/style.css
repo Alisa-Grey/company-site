@@ -432,7 +432,7 @@ footer-component {
 	border-radius: 10%;
 }
 .about-us-slide:nth-child(3) .about-us-slide__img {
-	max-height: 21vw;
+	max-height: 19vw;
 	border-radius: 20%;
 }
 .about-us-slide > .content-wrap {
@@ -542,7 +542,6 @@ footer-component {
 .about-section__content-wrap {
 	max-width: 40%;
 }
-
 .about-section__item:nth-child(2n) .about-section__subtitle {
 	text-align: right;
 }
@@ -557,6 +556,53 @@ footer-component {
 	margin-bottom: 10px;
 	border-radius: 32px;
 	box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.15);
+}
+.slide-left,
+.slide-right,
+.slide-top {
+	opacity: 0;
+}
+.scrolled.slide-left {
+	animation: slide-in-left 1s ease-in-out both;
+}
+.scrolled.slide-right {
+	animation: slide-in-right 1s ease-in-out both;
+}
+.scrolled.slide-top {
+	animation: slide-in-top 1s ease-in-out both;
+}
+.scrolled.slide-slow {
+	animation-duration: 1.5s;
+}
+@keyframes slide-in-left {
+	0% {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slide-in-right {
+	0% {
+		transform: translateX(100px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slide-in-top {
+	0% {
+		transform: translateY(100px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 .about-section__subheading {
 	margin-bottom: 10px;
@@ -784,6 +830,9 @@ footer-component {
 .jobs-list__item.adobe-ae::after {
 	border-radius: 5px;
 	background-image: url(../assets/images/icons/adobe_after_effects_icon.png);
+}
+.jobs-list__item.scrolled::after {
+	animation: slide-in-right 1s ease-in-out both;
 }
 .jobs-item__heading {
 	font-weight: 500;

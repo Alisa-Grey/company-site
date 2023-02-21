@@ -604,6 +604,9 @@
 	.hero__heading {
 		font-size: 5vw;
 	}
+	.section__content-wrap:first-child {
+		margin-top: 160px;
+	}
 	.about-us__text.text {
 		max-width: 90%;
 		margin-bottom: var(--margin-inner);
