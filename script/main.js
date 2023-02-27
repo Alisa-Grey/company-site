@@ -144,7 +144,7 @@ let getSiblings = function (e) {
 scrollElements = Array.from(document.getElementsByClassName('js-scroll'));
 let options = {
 	root: null,
-	threshold: 0.3,
+	threshold: 0.1,
 };
 let cb = (entries) => {
 	entries.forEach((entry) => {
