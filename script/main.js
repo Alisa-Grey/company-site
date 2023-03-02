@@ -72,29 +72,42 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 	document.getElementById(`btn-${currentIndex}`).classList.toggle('is-active');
 };
 // add navigation for touchscreens
-let touchstartX = 0;
-let touchendX = 0;
+let touchstartX = 0,
+	touchendX = 0,
+	touchstartY = 0,
+	touchendY = 0;
+let passiveIfSupported = false;
+try {
+	window.addEventListener(
+		'test',
+		null,
+		Object.defineProperty({}, 'passive', {
+			get: function () {
+				passiveIfSupported = { passive: false };
+			},
+		})
+	);
+} catch (err) {}
 
-function handleTouchStart(event) {
-	event.preventDefault();
-	touchstartX = event.changedTouches[0].screenX;
+function handleTouchStart(e) {
+	touchstartX = e.changedTouches[0].screenX;
+	touchstartY = e.changedTouches[0].screenY;
 }
-function handleTouchMove(event) {
-	event.preventDefault();
-}
-function handleTouchEnd(event) {
-	event.preventDefault();
-	touchendX = event.changedTouches[0].screenX;
+function handleTouchEnd(e) {
+	touchendX = e.changedTouches[0].screenX;
+	touchendY = e.changedTouches[0].screenY;
+	let diffX = touchendX - touchstartX;
+	let diffY = touchendY - touchstartY;
 	const targetId = Number(
-		event.target.closest('.about-us-slide').getAttribute('id').split('-')[1]
+		e.target.closest('.about-us-slide').getAttribute('id').split('-')[1]
 	);
 	const lastIndex = Array.from(slides).length - 1;
-	if (touchstartX < touchendX && Math.abs(touchstartX - touchendX) > 10) {
+	if (touchstartX < touchendX && Math.abs(diffX) > Math.abs(diffY)) {
+		e.preventDefault();
+
 		targetId !== 0 ? (nextIndex = targetId - 1) : (nextIndex = lastIndex);
-	} else if (
-		touchstartX > touchendX &&
-		Math.abs(touchstartX - touchendX) > 10
-	) {
+	} else if (touchstartX > touchendX && Math.abs(diffX) > Math.abs(diffY)) {
+		e.preventDefault();
 		targetId !== lastIndex ? (nextIndex = targetId + 1) : (nextIndex = 0);
 	} else {
 		nextIndex = targetId;

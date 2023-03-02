@@ -843,9 +843,12 @@
 				});
 			});
 			Array.from(slides).forEach((slide) => {
-				slide.addEventListener('touchstart', handleTouchStart, false);
-				slide.addEventListener('touchend', handleTouchEnd, false);
-				slide.addEventListener('touchmove', handleTouchMove, false);
+				slide.addEventListener(
+					'touchstart',
+					handleTouchStart,
+					passiveIfSupported
+				);
+				slide.addEventListener('touchend', handleTouchEnd, passiveIfSupported);
 			});
 		</script>
 	</body>

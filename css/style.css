@@ -993,7 +993,7 @@ footer-component {
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
-	width: 100%;
+	width: 120%;
 	border-radius: 75px;
 }
 .contacts-list,
