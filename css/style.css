@@ -258,20 +258,17 @@ footer-component {
 	justify-content: center;
 	align-items: center;
 	width: 80%;
-	padding-bottom: 50px;
+	height: 100vh;
 	opacity: 0;
-	transform: translate(-50%, -50%) scale(0.1);
+	transform: translate(-50%, -50%) scale(0);
 }
 .section:nth-child(1) {
-	top: 0;
 	z-index: 1;
 }
 .section:nth-child(2) {
-	top: 100vh;
 	z-index: 2;
 }
 .section:nth-child(3) {
-	top: 200vh;
 	z-index: 3;
 }
 

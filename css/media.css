@@ -31,6 +31,7 @@
 		position: relative;
 		height: 30px;
 		width: 40px;
+		z-index: 10;
 	}
 	.header__burger-container:hover > .header__burger-lines > .burger__line {
 		background-color: #cecece;
@@ -173,11 +174,11 @@
 	.jobs-list__item::after {
 		right: 50px;
 	}
-	.fixed {
+	.layer {
 		flex-direction: column;
 		align-items: center;
 	}
-	.section .fixed {
+	.section .layer {
 		top: 58%;
 		align-items: center;
 		padding-bottom: var(--gap);
@@ -260,15 +261,15 @@
 	.responsibilities__heading {
 		margin-top: var(--margin-inner);
 	}
+	.about-us,
+	.contact-us,
 	.hero,
 	.process,
-	.team,
-	.contact-us,
-	.about-us {
+	.team {
 		margin-bottom: var(--margin);
 	}
-	.hero::after,
-	.about-us-slider__sidebar {
+	.about-us-slider__sidebar,
+	.hero::after {
 		display: none;
 	}
 	.hero > .content-wrap,
@@ -276,27 +277,23 @@
 	.services-subheading {
 		text-align: center;
 	}
-	.tab__link,
-	.links-list__link {
+	.links-list__link,
+	.tab__link {
 		font-size: 2vw;
 	}
-	.process__img,
-	.contacts-list__item:last-child {
+	.contacts-list__item:last-child,
+	.process__img {
 		margin-right: var(--margin-inner);
 	}
-	.responsibilities__heading,
 	.heading,
+	.responsibilities__heading,
 	.services-heading {
 		font-size: 2.5vw;
 	}
 	.link {
 		font-size: 1rem;
 	}
-	.contacts__list {
-		width: 100%;
-	}
 }
-
 @media screen and (max-width: 850px) {
 	.container {
 		padding: 0 var(--margin-inner);
@@ -304,8 +301,8 @@
 	.header {
 		padding: 10px var(--gap);
 	}
-	.text,
-	.about-section__item {
+	.about-section__item,
+	.text {
 		max-width: 90%;
 		margin: 0 auto;
 	}
@@ -354,10 +351,10 @@
 	.about-section:last-child {
 		margin-bottom: var(--gap);
 	}
-	.about-section__subtitle,
 	.about-section__item:nth-child(2n) .about-section__subtitle,
 	.about-section__subheading,
-	.about-section__subheading--sm {
+	.about-section__subheading--sm,
+	.about-section__subtitle {
 		text-align: center;
 	}
 	.about-section__subheading {
@@ -407,12 +404,11 @@
 	.contacts-list__item:last-child {
 		margin-right: 0;
 	}
-	.hero__heading,
 	.about-section__subheading--sm,
-	.features__heading {
+	.features__heading,
+	.hero__heading {
 		margin-bottom: 10px;
 	}
-
 	.about-section__img-wrap {
 		width: 90%;
 	}
@@ -425,13 +421,12 @@
 	.team__subheading::after {
 		display: none;
 	}
-	.responsibilities__heading,
 	.heading,
+	.responsibilities__heading,
 	.services-heading {
 		font-size: 3.5vw;
 	}
 }
-
 @media screen and (max-width: 600px) {
 	.nav-list__link,
 	.responsibilities__heading,
@@ -448,8 +443,8 @@
 		width: 100px;
 		height: 100px;
 	}
-	.footer__text,
-	.footer__link {
+	.footer__link,
+	.footer__text {
 		font-size: 2.5vw;
 	}
 	.features::after {
@@ -501,7 +496,7 @@
 		width: 12.5vw;
 		height: 12.5vw;
 	}
-	.section .fixed {
+	.section .layer {
 		top: 55%;
 		width: 99%;
 	}
@@ -566,8 +561,8 @@
 		border-top-left-radius: 40px;
 		margin: var(--gap);
 	}
-	.responsibilities::before,
-	.responsibilities::after {
+	.responsibilities::after,
+	.responsibilities::before {
 		width: 50px;
 		height: 50px;
 	}
@@ -587,8 +582,8 @@
 		font-size: 3vw;
 		line-height: 1.5;
 	}
-	.responsibilities__heading,
 	.heading,
+	.responsibilities__heading,
 	.tab__link {
 		font-size: 4.5vw;
 	}
@@ -600,17 +595,16 @@
 	.links-list__item {
 		margin-bottom: 10px;
 	}
+	.contact-us__link-wrap::after,
 	.jobs-list__item::after,
-	.team__subheading::after,
-	.contact-us__link-wrap::after {
+	.team__subheading::after {
 		display: none;
 	}
-	.jobs-item__heading,
-	.contact-us__text {
+	.contact-us__text,
+	.jobs-item__heading {
 		font-size: 18px;
 	}
 }
-
 @media screen and (max-width: 400px) {
 	.burger__lines.is-active .burger__line1 {
 		transform: rotate(-45deg) translate(-1px, 11px);
@@ -633,8 +627,7 @@
 	.hero__heading {
 		font-size: 5vw;
 	}
-
-	.section .fixed {
+	.section .layer {
 		top: 60%;
 	}
 	.section__text {
@@ -701,8 +694,8 @@
 	.team {
 		padding: var(--gap) var(--margin-inner);
 	}
-	.team__subheading,
-	.process__subheading {
+	.process__subheading,
+	.team__subheading {
 		font-size: 20px;
 	}
 	.process > .content-wrap {
@@ -743,34 +736,34 @@
 	.responsibilities__heading {
 		font-size: 4vw;
 	}
+	.about-us,
 	.hero,
-	.team,
 	.process,
-	.about-us {
+	.team {
 		margin-bottom: var(--gap);
 	}
 	.about-us-slide__heading,
-	.services-subheading,
-	.contacts-list__text {
+	.contacts-list__text,
+	.services-subheading {
 		font-size: 18px;
 	}
-	.subtitle,
 	.card__text,
 	.contact-us__link,
-	.contact-us__text--small {
+	.contact-us__text--small,
+	.subtitle {
 		font-size: 14px;
 	}
 	.features__text::after,
 	.hero__text::after {
 		display: none;
 	}
-	.content-wrap,
-	.contact-us__link-wrap {
+	.contact-us__link-wrap,
+	.content-wrap {
 		width: 90%;
 	}
-	.link,
+	.contact-us .link,
 	.contact-us__text,
-	.contact-us .link {
+	.link {
 		font-size: 16px;
 	}
 	.contact-us,

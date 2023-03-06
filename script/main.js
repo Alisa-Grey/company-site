@@ -111,6 +111,11 @@ function handleTouchEnd(e) {
 		targetId !== lastIndex ? (nextIndex = targetId + 1) : (nextIndex = 0);
 	} else {
 		nextIndex = targetId;
+		window.scrollBy({
+			top: -diffY * 3,
+			left: 0,
+			behavior: 'smooth',
+		});
 	}
 	changeSlide(nextIndex, slides);
 	toggleClass(

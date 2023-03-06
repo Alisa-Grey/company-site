@@ -21,7 +21,7 @@
 		<link
 			media="screen and (max-width:1441px)"
 			rel="stylesheet"
-			href="./css/media.css"
+			href="./css/media.min.css"
 		/>
 		<script src="./components/header.js"></script>
 		<script src="./components/footer.js"></script>
@@ -150,6 +150,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+		<script src="./script/main.min.js"></script>
 		<script>
 			gsap.registerPlugin(ScrollTrigger);
 			const zoomTrigger = document.querySelectorAll('section');
@@ -159,7 +160,7 @@
 						id: 'layer',
 						trigger: zoomTrigger,
 						scrub: 1,
-						start: 'top bottom',
+						start: '30% 85%',
 						end: 'center center',
 						pin: false,
 						toggleActions: 'play reset play reset',
