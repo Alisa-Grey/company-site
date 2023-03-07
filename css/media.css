@@ -108,25 +108,25 @@
 		padding-left: var(--gap);
 		padding-right: var(--gap);
 	}
-	.about-us__heading {
+	.about__heading {
 		z-index: 1;
 	}
-	.about-us__text {
+	.about__text {
 		width: 60%;
 		margin: 0 auto var(--margin);
 	}
 	.img-wrap {
 		max-width: 55%;
 	}
-	.about-us-slide__img {
+	.about-slide__img {
 		width: inherit;
 		max-height: 27vw;
 		border-radius: 400px 0 400px 400px;
 	}
-	.content-wrap.about-us-slider__content-wrap {
+	.content-wrap.about-slider__content-wrap {
 		width: 50%;
 	}
-	.about-us__avatar {
+	.about__avatar {
 		display: block;
 		width: 9vw;
 		height: 9vw;
@@ -136,7 +136,7 @@
 	.about-section__item {
 		justify-content: space-evenly;
 	}
-	.about-us-slide:nth-child(3) .about-us-slide__img {
+	.about-slide:nth-child(3) .about-slide__img {
 		border-radius: 400px 0 400px 400px;
 	}
 	.features {
@@ -173,6 +173,9 @@
 	}
 	.jobs-list__item::after {
 		right: 50px;
+	}
+	.section {
+		height: 102vh;
 	}
 	.layer {
 		flex-direction: column;
@@ -248,8 +251,9 @@
 		border-radius: 35px;
 		padding: var(--margin-inner);
 	}
-	.contacts-list::before {
-		top: 40px;
+	.contacts-list::before,
+	.contacts-list::after {
+		display: none;
 	}
 	.contacts-list__item:first-child {
 		margin-left: var(--margin-inner);
@@ -261,14 +265,14 @@
 	.responsibilities__heading {
 		margin-top: var(--margin-inner);
 	}
-	.about-us,
+	.about,
 	.contact-us,
 	.hero,
 	.process,
 	.team {
 		margin-bottom: var(--margin);
 	}
-	.about-us-slider__sidebar,
+	.about-slider__sidebar,
 	.hero::after {
 		display: none;
 	}
@@ -309,19 +313,19 @@
 	.hero__img {
 		width: 80vw;
 	}
-	.about-us-slide {
+	.about-slide {
 		flex-direction: column-reverse;
 		justify-content: center;
 		margin-bottom: 10px;
 	}
-	.content-wrap.about-us-slider__content-wrap {
+	.content-wrap.about-slider__content-wrap {
 		width: 90%;
 		margin: 0 auto;
 	}
-	.about-us-slide__heading {
+	.about-slide__heading {
 		font-size: 21px;
 	}
-	.about-us-slide__text {
+	.about-slide__text {
 		max-width: 85%;
 		margin: 0 auto var(--margin-inner);
 	}
@@ -333,11 +337,11 @@
 		height: 12vw;
 		border-width: 6px;
 	}
-	.about-us-slide__img {
+	.about-slide__img {
 		min-height: 43vw;
 		margin-right: 0;
 	}
-	.about-us-slider__buttons {
+	.about-slider__buttons {
 		transform: none;
 	}
 	.about-section__subheading {
@@ -389,7 +393,7 @@
 		border-radius: 25px;
 	}
 	.contacts-list::before {
-		top: 204px;
+		top: 180px;
 		left: -35px;
 		width: 80px;
 		height: 80px;
@@ -633,17 +637,17 @@
 	.section__text {
 		font-size: 0.8rem;
 	}
-	.about-us__text {
+	.about__text {
 		max-width: 90%;
 		width: 90%;
 		margin-bottom: var(--margin-inner);
 	}
-	.about-us__avatar {
+	.about__avatar {
 		width: 14vw;
 		height: 14vw;
 		margin-right: 10px;
 	}
-	.about-us-slide__text {
+	.about-slide__text {
 		max-width: 100%;
 		font-size: 15px;
 	}
@@ -651,18 +655,18 @@
 		max-width: 100%;
 		margin-right: 0;
 	}
-	.about-us-slide__img {
+	.about-slide__img {
 		max-height: 74vw;
 	}
-	.about-us-slide__img::after {
+	.about-slide__img::after {
 		width: 15vw;
 		height: 15vw;
 	}
-	.about-us-slide:nth-child(2) .img-wrap::after {
+	.about-slide:nth-child(2) .img-wrap::after {
 		bottom: -3%;
 		left: -7%;
 	}
-	.about-us-slide:nth-child(3) .img-wrap::after {
+	.about-slide:nth-child(3) .img-wrap::after {
 		bottom: -4%;
 		left: 6%;
 	}
@@ -736,13 +740,13 @@
 	.responsibilities__heading {
 		font-size: 4vw;
 	}
-	.about-us,
+	.about,
 	.hero,
 	.process,
 	.team {
 		margin-bottom: var(--gap);
 	}
-	.about-us-slide__heading,
+	.about-slide__heading,
 	.contacts-list__text,
 	.services-subheading {
 		font-size: 18px;
@@ -767,7 +771,7 @@
 		font-size: 16px;
 	}
 	.contact-us,
-	.contatc-us {
+	.contacts {
 		padding: 0;
 	}
 }

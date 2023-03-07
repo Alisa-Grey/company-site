@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // create employees slider
 const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
-	const navItems = document.querySelectorAll('.about-us-thumb-img');
+	const navItems = document.querySelectorAll('.about-thumb-img');
 	for (let [index, slide] of Array.from(sliderElem).entries()) {
 		const sliderBtn = document.createElement('button');
-		sliderBtn.classList.add('btn-reset', 'about-us-slider__btn');
+		sliderBtn.classList.add('btn-reset', 'about-slider__btn');
 		sliderBtn.setAttribute('id', `btn-${index}`);
 		slide.setAttribute('id', `slide-${index}`);
 		sliderBtn.setAttribute('aria-label', 'Поменять слайд');
@@ -56,7 +56,7 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 			changeSlide(index, sliderElem);
 			toggleClass(
 				index,
-				Array.from(document.querySelectorAll('.about-us-slider__btn')),
+				Array.from(document.querySelectorAll('.about-slider__btn')),
 				'is-active'
 			);
 
@@ -99,7 +99,7 @@ function handleTouchEnd(e) {
 	let diffX = touchendX - touchstartX;
 	let diffY = touchendY - touchstartY;
 	const targetId = Number(
-		e.target.closest('.about-us-slide').getAttribute('id').split('-')[1]
+		e.target.closest('.about-slide').getAttribute('id').split('-')[1]
 	);
 	const lastIndex = Array.from(slides).length - 1;
 	if (touchstartX < touchendX && Math.abs(diffX) > Math.abs(diffY)) {
@@ -112,7 +112,7 @@ function handleTouchEnd(e) {
 	} else {
 		nextIndex = targetId;
 		window.scrollBy({
-			top: -diffY * 3,
+			top: -diffY * 2,
 			left: 0,
 			behavior: 'smooth',
 		});
@@ -120,7 +120,7 @@ function handleTouchEnd(e) {
 	changeSlide(nextIndex, slides);
 	toggleClass(
 		nextIndex,
-		Array.from(document.querySelectorAll('.about-us-slider__btn')),
+		Array.from(document.querySelectorAll('.about-slider__btn')),
 		'is-active'
 	);
 }
