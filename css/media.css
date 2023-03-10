@@ -136,8 +136,12 @@
 	.about-section__item {
 		justify-content: space-evenly;
 	}
+	.about-slide__img {
+		max-height: 30vw;
+	}
 	.about-slide:nth-child(3) .about-slide__img {
 		border-radius: 400px 0 400px 400px;
+		max-height: 23vw;
 	}
 	.features {
 		grid-template-columns: repeat(1, 100%);

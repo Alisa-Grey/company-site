@@ -61,8 +61,8 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 			);
 
 			navItems.forEach((item) => {
-				if (item.dataset.target == index) {
-					toggleClass(index, item.parentElement, 'is-active');
+				if (Number(item.dataset.target) === index) {
+					toggleClass(index, item.closest('li'), 'is-active');
 				}
 			});
 		});
@@ -71,65 +71,15 @@ const activateSlider = (sliderElem, sliderControls, currentIndex = 0) => {
 
 	document.getElementById(`btn-${currentIndex}`).classList.toggle('is-active');
 };
-// add navigation for touchscreens
-let touchstartX = 0,
-	touchendX = 0,
-	touchstartY = 0,
-	touchendY = 0;
-let passiveIfSupported = false;
-try {
-	window.addEventListener(
-		'test',
-		null,
-		Object.defineProperty({}, 'passive', {
-			get: function () {
-				passiveIfSupported = { passive: false };
-			},
-		})
-	);
-} catch (err) {}
-
-function handleTouchStart(e) {
-	touchstartX = e.changedTouches[0].screenX;
-	touchstartY = e.changedTouches[0].screenY;
-}
-function handleTouchEnd(e) {
-	touchendX = e.changedTouches[0].screenX;
-	touchendY = e.changedTouches[0].screenY;
-	let diffX = touchendX - touchstartX;
-	let diffY = touchendY - touchstartY;
-	const targetId = Number(
-		e.target.closest('.about-slide').getAttribute('id').split('-')[1]
-	);
-	const lastIndex = Array.from(slides).length - 1;
-	if (touchstartX < touchendX && Math.abs(diffX) > Math.abs(diffY)) {
-		e.preventDefault();
-
-		targetId !== 0 ? (nextIndex = targetId - 1) : (nextIndex = lastIndex);
-	} else if (touchstartX > touchendX && Math.abs(diffX) > Math.abs(diffY)) {
-		e.preventDefault();
-		targetId !== lastIndex ? (nextIndex = targetId + 1) : (nextIndex = 0);
-	} else {
-		nextIndex = targetId;
-		window.scrollBy({
-			top: -diffY * 2,
-			left: 0,
-			behavior: 'smooth',
-		});
-	}
-	changeSlide(nextIndex, slides);
-	toggleClass(
-		nextIndex,
-		Array.from(document.querySelectorAll('.about-slider__btn')),
-		'is-active'
-	);
-}
 function changeSlide(i, sliderElem) {
 	currentIndex = i;
 	Array.from(sliderElem).forEach((item, index) => {
-		index === currentIndex
-			? item.classList.remove('hidden')
-			: item.classList.add('hidden');
+		if (index === currentIndex) {
+			item.classList.add('highlight');
+			document.querySelector('.slider-container').style.minHeight = `${
+				item.offsetHeight + 40
+			}px`;
+		} else item.classList.remove('highlight');
 	});
 }
 function toggleClass(i, targetEl, targetClass) {
@@ -158,6 +108,300 @@ let getSiblings = function (e) {
 	}
 	return siblings;
 };
+// touch events
+class DraggingEvent {
+	constructor(target = undefined) {
+		this.target = target;
+	}
+
+	event(callback) {
+		let handler;
+
+		this.target.addEventListener('mousedown', (e) => {
+			e.preventDefault();
+
+			handler = callback(e);
+
+			window.addEventListener('mousemove', handler);
+
+			document.addEventListener('mouseleave', clearDraggingEvent);
+
+			window.addEventListener('mouseup', clearDraggingEvent);
+
+			function clearDraggingEvent() {
+				window.removeEventListener('mousemove', handler);
+				window.removeEventListener('mouseup', clearDraggingEvent);
+
+				document.removeEventListener('mouseleave', clearDraggingEvent);
+
+				handler(null);
+			}
+		});
+
+		this.target.addEventListener('touchstart', (e) => {
+			handler = callback(e);
+
+			window.addEventListener('touchmove', handler);
+
+			window.addEventListener('touchend', clearDraggingEvent);
+
+			document.body.addEventListener('mouseleave', clearDraggingEvent);
+
+			function clearDraggingEvent() {
+				window.removeEventListener('touchmove', handler);
+				window.removeEventListener('touchend', clearDraggingEvent);
+
+				handler(null);
+			}
+		});
+	}
+
+	// Get the distance that the user has dragged
+	getDistance(callback) {
+		function distanceInit(e1) {
+			let startingX, startingY;
+
+			if ('touches' in e1) {
+				startingX = e1.touches[0].clientX;
+				startingY = e1.touches[0].clientY;
+			} else {
+				startingX = e1.clientX;
+				startingY = e1.clientY;
+			}
+
+			return function (e2) {
+				if (e2 === null) {
+					return callback(null);
+				} else {
+					if ('touches' in e2) {
+						return callback({
+							x: e2.touches[0].clientX - startingX,
+							y: e2.touches[0].clientY - startingY,
+						});
+					} else {
+						return callback({
+							x: e2.clientX - startingX,
+							y: e2.clientY - startingY,
+						});
+					}
+				}
+			};
+		}
+
+		this.event(distanceInit);
+	}
+}
+
+class CardCarousel extends DraggingEvent {
+	constructor(container, controller = undefined) {
+		super(container);
+
+		// DOM elements
+		this.container = container;
+		this.controllerElement = controller;
+		this.slides = container.querySelectorAll('.about-slide');
+
+		// Carousel data
+		this.centerIndex = (this.slides.length - 1) / 2;
+		this.cardWidth =
+			(this.slides[0].offsetWidth / this.container.offsetWidth) * 100;
+		this.xScale = {};
+
+		// Resizing
+		window.addEventListener('resize', this.updateCardWidth.bind(this));
+
+		// Initializers
+		this.build();
+
+		// Bind dragging event
+		super.getDistance(this.moveSlides.bind(this));
+	}
+
+	updateCardWidth() {
+		this.cardWidth =
+			(this.slides[0].offsetWidth / this.container.offsetWidth) * 100;
+
+		this.build();
+	}
+
+	build(fix = 0) {
+		for (let i = 0; i < this.slides.length; i++) {
+			const x = i - this.centerIndex;
+			const scale = this.calcScale(x);
+			const scale2 = this.calcScale2(x);
+			const zIndex = -Math.abs(i - this.centerIndex);
+
+			const leftPos = this.calcPos(x, scale2);
+
+			this.xScale[x] = this.slides[i];
+
+			this.updateSlides(this.slides[i], {
+				x: x,
+				scale: scale,
+				leftPos: leftPos,
+				zIndex: zIndex,
+			});
+		}
+	}
+
+	controller(e) {
+		const temp = { ...this.xScale };
+
+		this.xScale = temp;
+
+		for (let x in temp) {
+			const scale = this.calcScale(x),
+				scale2 = this.calcScale2(x),
+				leftPos = this.calcPos(x, scale2),
+				zIndex = -Math.abs(x);
+
+			this.updateSlides(this.xScale[x], {
+				x: x,
+				scale: scale,
+				leftPos: leftPos,
+				zIndex: zIndex,
+			});
+		}
+	}
+
+	calcPos(x, scale) {
+		let formula;
+
+		if (x < 0) {
+			formula = (scale * 100 - this.cardWidth) / 2;
+			return formula;
+		} else if (x > 0) {
+			formula = 100 - (scale * 100 + this.cardWidth) / 2;
+			return formula;
+		} else {
+			formula = 100 - (scale * 100 + this.cardWidth) / 2;
+			return formula;
+		}
+	}
+
+	updateSlides(card, data) {
+		if (data.x || data.x == 0) {
+			card.setAttribute('data-x', data.x);
+		}
+		if (data.leftPos) {
+			card.style.left = '0%';
+		}
+
+		if (data.zIndex || data.zIndex == 0) {
+			if (data.zIndex == 0) {
+				card.classList.add('highlight');
+				if (card.dataset.x == 0) {
+					let index = card.getAttribute('id').split('-')[1];
+					document.querySelector('.slider-container').style.minHeight = `${
+						card.offsetHeight + 40
+					}px`;
+					toggleClass(
+						index,
+						Array.from(document.querySelectorAll('.about-slider__btn')),
+						'is-active'
+					);
+					toggleClass(
+						index,
+						Array.from(document.querySelectorAll('.about__thumbnail')),
+						'is-active'
+					);
+				}
+			} else {
+				card.classList.remove('highlight');
+			}
+
+			card.style.zIndex = data.zIndex;
+		}
+	}
+
+	calcScale2(x) {
+		let formula;
+
+		if (x <= 0) {
+			formula = 1 - (-1 / 5) * x;
+
+			return formula;
+		} else if (x > 0) {
+			formula = 1 - (1 / 5) * x;
+
+			return formula;
+		}
+	}
+
+	calcScale(x) {
+		const formula = 1 - (1 / 5) * Math.pow(x, 2);
+
+		if (formula <= 0) {
+			return 0;
+		} else {
+			return formula;
+		}
+	}
+
+	checkOrdering(card, x, xDist) {
+		const original = parseInt(card.dataset.x);
+		const rounded = Math.round(xDist);
+		let newX = x;
+
+		if (x !== x + rounded) {
+			if (x + rounded > original) {
+				if (x + rounded > this.centerIndex) {
+					newX =
+						x + rounded - 1 - this.centerIndex - rounded + -this.centerIndex;
+				}
+			} else if (x + rounded < original) {
+				if (x + rounded < -this.centerIndex) {
+					newX =
+						x + rounded + 1 + this.centerIndex - rounded + this.centerIndex;
+				}
+			}
+
+			this.xScale[newX + rounded] = card;
+		}
+
+		const temp = -Math.abs(newX + rounded);
+
+		this.updateSlides(card, { zIndex: temp });
+
+		return newX;
+	}
+
+	moveSlides(data) {
+		let xDist;
+
+		if (data != null) {
+			this.container.classList.remove('smooth-return');
+			xDist = data.x / 250;
+		} else {
+			this.container.classList.add('smooth-return');
+			xDist = 0;
+
+			for (let x in this.xScale) {
+				this.updateSlides(this.xScale[x], {
+					x: x,
+					zIndex: Math.abs(Math.abs(x) - this.centerIndex),
+				});
+			}
+		}
+
+		for (let i = 0; i < this.slides.length; i++) {
+			const x = this.checkOrdering(
+					this.slides[i],
+					parseInt(this.slides[i].dataset.x),
+					xDist
+				),
+				scale = this.calcScale(x + xDist),
+				scale2 = this.calcScale2(x + xDist),
+				leftPos = this.calcPos(x + xDist, scale2);
+
+			this.updateSlides(this.slides[i], {
+				scale: scale,
+				leftPos: leftPos,
+			});
+		}
+	}
+}
+
 // animate elements on scroll
 scrollElements = Array.from(document.getElementsByClassName('js-scroll'));
 let options = {
