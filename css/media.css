@@ -179,20 +179,15 @@
 		right: 50px;
 	}
 	.section {
-		height: 102vh;
-	}
-	.layer {
 		flex-direction: column;
+		justify-content: flex-start;
 		align-items: center;
-	}
-	.section .layer {
-		top: 58%;
-		align-items: center;
-		padding-bottom: var(--gap);
+		padding-top: 60px !important;
 	}
 	.section__content-wrap {
-		width: 80%;
-		margin-right: 0;
+		width: 90%;
+		align-items: center;
+		margin: 0 auto;
 		margin-bottom: var(--margin-inner);
 	}
 	.section__logo {
@@ -308,6 +303,10 @@
 	}
 	.header {
 		padding: 10px var(--gap);
+	}
+	.section {
+		padding-left: var(--gap) !important;
+		padding-right: var(--gap) !important;
 	}
 	.about-section__item,
 	.text {
@@ -504,9 +503,9 @@
 		width: 12.5vw;
 		height: 12.5vw;
 	}
-	.section .layer {
-		top: 55%;
-		width: 99%;
+	.section {
+		padding-left: 20px !important;
+		padding-right: 20px !important;
 	}
 	.summer-friends__logo {
 		width: 40vw;
@@ -634,9 +633,6 @@
 	}
 	.hero__heading {
 		font-size: 5vw;
-	}
-	.section .layer {
-		top: 60%;
 	}
 	.section__text {
 		font-size: 0.8rem;
