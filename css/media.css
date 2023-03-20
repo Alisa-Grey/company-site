@@ -316,6 +316,9 @@
 	.hero__img {
 		width: 80vw;
 	}
+	.about__text {
+		margin-bottom: 20px;
+	}
 	.about-slide {
 		flex-direction: column-reverse;
 		justify-content: center;
@@ -454,6 +457,9 @@
 	.footer__text {
 		font-size: 2.5vw;
 	}
+	.about-section__text {
+		max-width: 100%;
+	}
 	.features::after {
 		top: 21%;
 	}
@@ -485,7 +491,7 @@
 	.jobs-list__item {
 		width: 100%;
 		margin-bottom: var(--gap);
-		padding-left: 0;
+		padding-left: 20px;
 	}
 	.jobs-item__text {
 		padding-left: 10px;
@@ -506,6 +512,9 @@
 	.section {
 		padding-left: 20px !important;
 		padding-right: 20px !important;
+	}
+	.projects::-webkit-scrollbar {
+		width: 8px;
 	}
 	.summer-friends__logo {
 		width: 40vw;

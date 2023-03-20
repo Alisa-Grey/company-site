@@ -35,11 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				: link.classList.remove('is-active');
 
 			// uncomment to show vacancies
-			tabs.forEach((tab) => {
-				tab.id === e.target.dataset.link
-					? tab.classList.add('is-shown')
-					: tab.classList.remove('is-shown');
-			});
+			// tabs.forEach((tab) => {
+			// 	tab.id === e.target.dataset.link
+			// 		? tab.classList.add('is-shown')
+			// 		: tab.classList.remove('is-shown');
+			// });
 		})
 	);
 });
