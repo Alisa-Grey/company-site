@@ -4,19 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="google" content="notranslate" />
-		<meta
-			name="description"
-			content="Создавать игровые миры так же интересно и увлекательно, как и гулять по ним. Попробуй с нами"
-		/>
-		<meta property="og:title" content="Главная / Heapp Games" />
-		<meta
-			property="og:description"
-			content="Создавать игровые миры так же интересно и увлекательно,как и гулять по ним. Попробуй с нами"
-		/>
-		<meta property="og:image" content="/prew_heapp_games.jpg" />
-		<link rel="apple-touch-icon" href="heapp_logo_light_square.png" />
-		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="stylesheet" href="./css/style.min.css" />
 		<link
 			media="screen and (max-width:1441px)"
@@ -25,7 +12,7 @@
 		/>
 		<script src="./components/header.js"></script>
 		<script src="./components/footer.js"></script>
-		<title>Главная / Heapp Games</title>
+		<title>Document</title>
 	</head>
 	<body>
 		<div class="wrap projects-wrap">
@@ -144,21 +131,28 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
 		<script src="./script/main.min.js"></script>
 		<script>
+			const sections = document.querySelectorAll('.section');
+			sections.forEach((section) =>
+				console.log('section.offsetHeight', section, section.scrollHeight)
+			);
+			console.log('sections.length', sections.length);
 			gsap.registerPlugin(ScrollTrigger);
 			gsap.utils.toArray('section').forEach((section, i) => {
 				ScrollTrigger.create({
 					trigger: section,
 					scroller: '.projects',
 					scrub: 1,
-					start: 'top top',
+					start: 'bottom bottom',
+					end: () => section.scrollHeight,
 					pin: true,
 					pinSpacing: false,
 					toggleActions: 'play reset play reset',
 				});
 			});
 			ScrollTrigger.create({
-				snap: 1 / 4,
+				snap: 1 / sections.length,
 			});
+			ScrollTrigger.normalizeScroll(true);
 		</script>
 	</body>
 </html>
