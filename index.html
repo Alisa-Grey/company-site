@@ -145,19 +145,26 @@
 		<script src="./script/main.min.js"></script>
 		<script>
 			gsap.registerPlugin(ScrollTrigger);
-			gsap.utils.toArray('section').forEach((section, i) => {
+			let mm = gsap.matchMedia();
+			mm.add('(min-width: 1201px)', () => {
+				gsap.utils.toArray('section').forEach((section, i) => {
+					ScrollTrigger.create({
+						trigger: section,
+						scroller: '.projects',
+						scrub: 1,
+						start: 'top top',
+						pin: true,
+						pinSpacing: false,
+						toggleActions: 'play reset play reset',
+					});
+				});
 				ScrollTrigger.create({
-					trigger: section,
-					scroller: '.projects',
-					scrub: 1,
-					start: 'top top',
-					pin: true,
-					pinSpacing: false,
-					toggleActions: 'play reset play reset',
+					snap: 1 / 4,
 				});
 			});
-			ScrollTrigger.create({
-				snap: 1 / 4,
+
+			mm.add('(max-width: 1200px)', () => {
+				ScrollTrigger.killAll(true);
 			});
 		</script>
 	</body>
