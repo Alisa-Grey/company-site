@@ -237,9 +237,7 @@ footer-component {
 	position: relative;
 }
 .projects-wrap {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+	height: 100vh;
 }
 .section {
 	position: -webkit-sticky;
@@ -893,6 +891,9 @@ footer-component {
 	box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.15);
 	border-radius: 32px;
 }
+.hero.contacts-hero {
+	margin-bottom: var(--margin-inner);
+}
 .contacts-img {
 	width: 41vw;
 }
@@ -979,7 +980,12 @@ footer-component {
 .responsibilities {
 	padding: var(--gap);
 	background: #f4f9ff;
-	background-size: 150%;
+}
+.responsibilities {
+	padding: var(--gap);
+}
+.contacts-list {
+	padding: var(--gap) 60px;
 }
 .contacts-list::before,
 .responsibilities::after,
