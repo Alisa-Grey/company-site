@@ -6,19 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	const makeHeaderSticky = () => {
 		let scrollTop = window.scrollY;
 		let stickyStartPosition = main.offsetHeight / 4;
+		console.log('scrollTop', scrollTop);
+		console.log('stickyStartposition', stickyStartPosition);
 
 		if (scrollTop >= stickyStartPosition) {
 			header.classList.add('sticky');
 			main.style.marginTop = `${header.offsetHeight}px`;
+			console.log('first');
 		} else {
 			header.classList.remove('sticky');
 			main.style.marginTop = `0px`;
 		}
 	};
 
-	window.addEventListener('scroll', () => {
-		makeHeaderSticky();
-	});
+	window.addEventListener(
+		'scroll',
+		() => {
+			makeHeaderSticky();
+			console.log('scroll');
+		},
+		false
+	);
 	// menu
 	document.querySelector('#toggle-menu').addEventListener('click', function () {
 		document.querySelector('.burger__lines').classList.toggle('is-active');
