@@ -182,8 +182,7 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
-		padding-top: var(--gap);
-		padding-bottom: 20px;
+		padding-top: 60px !important;
 	}
 	.section__content-wrap {
 		width: 90%;
@@ -195,7 +194,7 @@
 		align-self: center;
 	}
 	.video-wrap {
-		width: 70%;
+		width: 100%;
 		padding: 0;
 	}
 	.video-wrap::after {
@@ -526,9 +525,6 @@
 	.wondermatch__logo {
 		width: 60vw;
 	}
-	.video-wrap {
-		width: 85%;
-	}
 	.video-wrap::after {
 		top: 90%;
 		right: -6%;
@@ -783,5 +779,20 @@
 	.contact-us,
 	.contacts {
 		padding: 0;
+	}
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+	.section {
+		position: relative;
+		height: auto;
+	}
+	.hero__text::after {
+		display: none;
+	}
+	.contacts {
+		padding: var(--margin-inner) var(--margin) !important;
+	}
+	.down-arrow {
+		right: 5%;
 	}
 }
