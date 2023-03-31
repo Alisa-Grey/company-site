@@ -16,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	};
 
-	window.addEventListener('scroll', () => {
-		makeHeaderSticky();
-	});
+	window.addEventListener(
+		'scroll',
+		() => {
+			makeHeaderSticky();
+		},
+		false
+	);
 	// menu
 	document.querySelector('#toggle-menu').addEventListener('click', function () {
 		document.querySelector('.burger__lines').classList.toggle('is-active');
