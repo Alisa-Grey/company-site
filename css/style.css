@@ -1186,15 +1186,6 @@ footer-component {
 	.team-list__item {
 		font-size: 18px;
 	}
-	.section__logo {
-		width: 18vw;
-	}
-	.darkest-afk__logo {
-		width: 12vw;
-	}
-	.video-wrap {
-		width: 40%;
-	}
 	.section__text {
 		font-size: 1.4rem;
 	}

@@ -8,9 +8,6 @@ class Footer extends HTMLElement {
     <p class="footer__text">
       Heapp Games &copy;&nbsp;2021. Все права сохранены
     </p>
-    <a class="footer__link link-reset" href="social_responsibility.html"
-      >Социальная ответственность</a
-    >
   </footer>
     `;
 	}

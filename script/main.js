@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-	// sticky header
 	const main = document.querySelector('.main');
 	const header = document.querySelector('#header');
 
@@ -40,13 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			e.target === link
 				? link.classList.add('is-active')
 				: link.classList.remove('is-active');
-
-			// uncomment to show vacancies
-			// tabs.forEach((tab) => {
-			// 	tab.id === e.target.dataset.link
-			// 		? tab.classList.add('is-shown')
-			// 		: tab.classList.remove('is-shown');
-			// });
+			tabs.forEach((tab) => {
+				tab.id === e.target.dataset.link
+					? tab.classList.add('is-shown')
+					: tab.classList.remove('is-shown');
+			});
 		})
 	);
 });
@@ -198,29 +195,18 @@ class DraggingEvent {
 		this.event(distanceInit);
 	}
 }
-
 class CardCarousel extends DraggingEvent {
 	constructor(container, controller = undefined) {
 		super(container);
-
-		// DOM elements
 		this.container = container;
 		this.controllerElement = controller;
 		this.slides = container.querySelectorAll('.about-slide');
-
-		// Carousel data
 		this.centerIndex = (this.slides.length - 1) / 2;
 		this.cardWidth =
 			(this.slides[0].offsetWidth / this.container.offsetWidth) * 100;
 		this.xScale = {};
-
-		// Resizing
 		window.addEventListener('resize', this.updateCardWidth.bind(this));
-
-		// Initializers
 		this.build();
-
-		// Bind dragging event
 		super.getDistance(this.moveSlides.bind(this));
 	}
 
@@ -408,7 +394,6 @@ class CardCarousel extends DraggingEvent {
 		}
 	}
 }
-
 // animate elements on scroll
 scrollElements = Array.from(document.getElementsByClassName('js-scroll'));
 let options = {
